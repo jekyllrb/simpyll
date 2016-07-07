@@ -1,0 +1,4 @@
+#! /bin/bash
+
+# Creates an archive (*.tar.gz) from given directory.
+function mktar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }

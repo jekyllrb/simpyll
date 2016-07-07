@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# install basic stuff
+set -e
+
+# ensure user is root
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+pacstrap /mnt \
+  base base-devel \
+  iw wget openssh wpa_supplicant wireless_tools dhcpcd dialog git \
+  intel-ucode nvidia nvidia-libgl nidia-utils \

@@ -1,0 +1,168 @@
+.breadcrumb-home {
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline;
+}
+
+.breadcrumb-home:hover {
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline;
+}
+
+.breadcrumb-home:link {
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline;
+}
+
+.breadcrumb-home:visited {
+  font-family: sans-serif;
+  cursor: pointer;
+  display: inline;
+}
+
+.breadcrumb-list:hover {
+    background-color: #0089e0;
+}
+
+.breadcrumb-item {
+  position: relative;
+  display: inline-block;
+  font-size: small;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-transform: capitalize;
+  line-height: 1;
+  font-size: 1.25em;
+}
+
+.breadcrumb-item {
+    position: static;
+    display: inline-block;
+    font-size: small;
+    font-family: sans-serif;
+    cursor: pointer;
+    text-transform: capitalize;
+    line-height: 1;
+    font-size: 1.25em;
+}
+
+.breadcrumb-item-link:before {
+  content: "/ ";
+  font-weight: 900;
+}
+
+.dropbtn {
+  display: inline-block;
+}
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+    position: static;
+    display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: -125px;
+  right: -125px;
+  z-index: 1;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 250px;
+    z-index: 5;
+    margin: 0 50%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  line-height: 1.1;
+  font-size: 0.65em;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #eee;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  left: -125px;
+  right: -125px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  left: -125px;
+  right: -125px;
+}
+
+.onclick-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.onclick-menu:focus {
+  pointer-events: none;
+  outline: none;
+}
+
+.onclick-menu:focus .onclick-menu-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.onclick-menu-content {
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    font-size: 0.65em;
+    transform: translate(-50%);
+    left: 50%;
+}
+
+.onclick-menu-content li:hover {
+  background-color: #f1f1f1
+}
+
+.onclick-menu-content li button {
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    line-height: 1;
+    text-transform: capitalize;
+    color: black;
+}
+
+.backslash {
+    font-weight: 900;
+    display: inline-block;
+    font-family: sans-serif;
+    line-height: 1;
+    color: black;
+    margin: 0;
+}

@@ -1,0 +1,34 @@
+<head>
+  
+<!-- meta -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="cleartype" content="on">
+<meta name="MobileOptimized" content="320">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+{% if page.description %}<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">{% endif %}
+{% if page.tags %}<meta name="keywords" content="{{ page.tags }}">{% endif %}
+{% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
+
+<!-- stylesheets -->
+<link rel="canonical" href="{{ page.url | replace:'index.html','' }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ 'assets/css/font.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/style.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/pygments.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/menu.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/breadcrumbs.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/media.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/search.css' | prepend:site.baseurl }}">
+<link rel="stylesheet" href="{{ 'assets/css/button.css' | prepend:site.baseurl }}">
+{% if page.tags == true or page.title == 'tags' %}<link rel="stylesheet" href="{{ 'assets/css/tags.css' | prepend:site.baseurl }}">{% endif %}
+
+<title>{{ site.title | capitalize }}{% if page.title %}{% if page.url != '/' %}- {{ page.title | capitalize }}{% endif %}{% endif %}</title>
+
+{% if site.analytics %}
+  {% include analytics.html %}
+{% endif %}
+  
+</head>

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# make and mount boot and root filesystems
+set -e
+
+# ensure user is root
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+mkfs.ext4 /dev/mapper/vg-lvol0
+mkfs.fat -F32 /dev/sda1
+mount /dev/mapper/vg-lvol0 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot

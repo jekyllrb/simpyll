@@ -1,0 +1,24 @@
+#! /bin/bash
+
+# Description: Obtain a list of any github users repositories
+
+# check if user has supplied an arg
+if [ -z "$1" ]
+  then
+    # if no arg has been supplied by user then ask them to supply one
+    echo "Type the username of the github user would you like to query, then press [ENTER]:"
+    # make their response a variable called 'gh_user'
+    read -r gh_user
+  else
+    # if they did supply an arg then use it to make a variable called 'gh_user'
+    gh_user=${1:-default}
+fi
+
+# go to the supplied users main github page and filter out the crap to obtain a list of all of their repos
+# print the list into the command line once obtained
+lynx -dump -listonly https://github.com/"$gh_user"?tab=repositories |
+grep https://github.com/"$gh_user"/ |
+grep -v 'network\|stargazers\|follow' |
+cut -d " " -f 4 |
+cut -d / -f 5 |
+sort

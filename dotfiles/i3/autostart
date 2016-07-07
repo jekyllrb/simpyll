@@ -1,0 +1,7 @@
+exec feh --bg-scale "/home/simpyll/.config/i3/solarized.png" &
+exec redshift &
+exec compton &
+exec conky &
+exec xrdb -merge ~/.Xresources &
+exec numlockx on &
+exit 0

@@ -1,0 +1,77 @@
+#! /bin/bash
+
+function connect2wifi {
+INTERFACE=$(ip link | grep wl | awk '{print $2}'| sed 's/://' | sed '1!d')
+ESSID=$(iwconfig "$INTERFACE" | grep 'ESSID:' | awk '{print $4}' | sed 's/ESSID://g' | sed 's/"//g')
+read -rp "wifi-password: " WIFI_PASSWORD
+cat <<EOF > /etc/netctl/"${INTERFACE}-${ESSID}"
+  Interface="${INTERFACE}"
+  Connection="wireless"
+  Security="wpa"
+  ESSID="${ESSID}"
+  IP="dhcp"
+  Key="${WIFI_PASSWORD}"
+EOF
+}
+
+connect2wifi
+
+netctl start "${INTERFACE}-${ESSID}"
+sgdisk -Z -a 2048 -o /dev/sda -n 1::+512M -n 2::: -t 1:ef00
+cryptsetup -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random --verify-passphrase luksFormat /dev/sda2
+cryptsetup luksOpen /dev/sda2 luks
+pvcreate /dev/mapper/luks
+vgcreate vg /dev/mapper/luks
+lvcreate -l 100%FREE vg-lvol0
+mkfs.ext4 /dev/mapper/vg-lvol0
+mkfs.fat -F32 /dev/sda1
+mount /dev/mapper/vg-lvol0 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+pacstrap /mnt base base-devel
+genfstab -pU /mnt >> /mnt/etc/fstab
+echo 'tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0' >> /mnt/etc/fstab
+arch-chroot /mnt /bin/bash -c '
+ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
+hwclock --systohc --utc
+echo arch > /etc/hostname
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo LANGUAGE=en_US >> /etc/locale.conf
+echo LC_ALL=C
+locale-gen
+'
+
+arch-chroot /mnt /bin/bash -c '
+sed -i "/^HOOK/s/block/block keymap encrypt/" /etc/mkinitcpio.conf
+sed -i "/^HOOK/s/filesystems/lvm2 filesystems/" /etc/mkinitcpio.conf
+sed -i "/^MODULES/s/''/'ext4'/" /etc/mkinitcpio.conf
+mkinitcpio -p linux
+bootctl --path=/boot install
+'
+
+arch-chroot /mnt /bin/bash -c '
+sed -i "/127.0.0.1/s/$/ arch/" /etc/hosts
+sed -i "/::1/s/$/ arch/" /etc/hosts
+'
+
+arch-chroot /mnt /bin/bash -c '
+cat << EOF > /boot/loader/entries/arch.conf
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options cryptdevice=UUID=$(blkid -s UUID -o value /dev/sda2):vg:allow-discards root=/dev/mapper/vg-lvol0 rw quiet loglevel=0 udev.log-priority=3
+EOF
+'
+
+arch-chroot /mnt /bin/bash -c '
+cat << EOF > /boot/loader/loader.conf
+default Arch Linux
+timeout 0
+editor 0
+EOF
+'
+
+arch-chroot /mnt /bin/bash -c '
+passwd
+'

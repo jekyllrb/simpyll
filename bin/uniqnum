@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# Usage:
+# generates a number that is guarenteed to be different from any other number produced by this script
+
+date +%Y%M%d%H%M%S

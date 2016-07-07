@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# create a new volume
+set -e
+
+# ensure user is root
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+pvcreate /dev/mapper/luks
+vgcreate vg /dev/mapper/luks
+lvcreate -l 100%FREE vg-lvol0

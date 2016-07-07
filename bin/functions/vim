@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# Fail instead of opening directories in vim
+vim () {
+  for i in $@ ; do
+    if [[ -d $i ]] ; then
+      echo "$i is a directory!"
+      return 1
+      fi
+  done
+  command vim -u "/home/$USER/.dotfiles/vim/vimrc" "$@"
+}

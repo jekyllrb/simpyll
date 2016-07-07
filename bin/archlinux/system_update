@@ -1,0 +1,17 @@
+#! /bin/bash
+
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+pacman-key -u ############################################################################### update list of trusted keys
+yaourt -Syua ################################################################################ update the system
+paccache -r ################################################################################# remove old cached packages
+paccache -ruk0 ############################################################################## remove old cached packages
+yaourt -R $(yaourt -Qdtq) ################################################################### remove orphan packages
+pacman-optimize ############################################################################# optimize pacman db
+systemctl daemon-reload ##################################################################### Reload the systemd manager configuration.
+pkgfile --update ############################################################################ update pkgfile
+freshclam ################################################################################### update clamav virus definitions
+clamscan --recursive=yes --infected --exclude-dir='^/sys|^/proc|^/dev|^/lib|^/bin|^/sbin' / # scan entire system
+yaourt -Syua ################################################################################ update the system

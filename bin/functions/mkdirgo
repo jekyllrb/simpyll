@@ -1,0 +1,7 @@
+#! /bin/bash
+
+
+# Make and go to dir
+mkdirgo(){
+  mkdir $1 && cd $1
+}

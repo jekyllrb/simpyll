@@ -1,0 +1,9 @@
+cups 
+cups-filters 
+foomatic-db 
+foomatic-db-engine 
+foomatic-db-nonfree 
+foomatic-filters 
+ghostscript 
+gsfonts 
+gutenprint

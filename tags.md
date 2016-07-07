@@ -1,0 +1,7 @@
+---
+layout:   default
+title:    tags
+permalink: /tags/
+---
+
+{% include tags.html %}

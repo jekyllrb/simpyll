@@ -1,0 +1,10 @@
+title: Simpyll
+url: http://simpyll.com
+baseurl: "/"
+disqus: simpyll
+twitter: simpyll
+github: simpyll
+repository: simpyll
+branch: gh-pages
+google_analytics: # UA-71593532-1
+markdown: kramdown

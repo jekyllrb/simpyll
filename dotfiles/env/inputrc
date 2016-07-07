@@ -1,0 +1,44 @@
+$include /etc/inputrc
+
+set completion-ignore-case on               # ignore upcase lowcase 
+set completion-prefix-display-length 2      # in folders with lots of similar filenames just skip to the part of the filename thats different
+set show-all-if-ambiguous on                # make completions appear immediately after pressing TAB once
+set show-all-if-unmodified on               # make completions appear immediately after pressing TAB once
+# set colored-stats on
+# set echo-control-characters off
+# set editing-mode vi
+# set keymap vi
+# set mark-directories on
+# set mark-symlinked-directories on
+# set page-completions off
+# set visible-stats on
+# set completion-query-items 9001
+# set completion-map-case on
+
+"\e[A": history-search-backward         
+"\e[B": history-search-forward       
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  source /etc/bash_completion
+fi
+
+# HISTFILE=~/.histfile.$FULLHOST
+# HISTSIZE=100000
+# SAVEHIST=100000
+
+# setopt nobeep 
+# setopt interactivecomments 
+# setopt kshglob 
+# setopt autocd 
+# setopt histfindnodups 
+# setopt noflowcontrol
+# setopt extendedglob
+# setopt extendedhistory
+# setopt autolist                 # On first tab, complete as much as you can and list the choices
+# setopt nolistambiguous          # On first tab, complete as much as you can and list the choices
+# setopt histnostore              # Don't put 'history' into the history list
+# setopt histignoredups           # Don't add identical events in a row (ok in different parts of the file)
+# setopt incappendhistory         # Add to history as we go
+# setopt nocheckjobs
+# setopt nohup
+# setoptlonglistjobs

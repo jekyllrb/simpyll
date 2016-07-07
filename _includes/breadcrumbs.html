@@ -1,0 +1,138 @@
+<div class="desktop">
+  <div class="breadcrumb-item">
+  {% if page.url == '/' %}
+    <div class="dropdown">
+      <i class="fa fa-home"></i>
+    <div class="subdirectory dropdown-content">
+  {% assign page_url = page.url %}
+  {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+  {% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
+  {% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
+  {% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
+  {% for node in site.pages %}
+  {% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+  {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
+  {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
+  {% if node_url_base == page_url %}
+    <a href="{{node.url}}">{{node.title }}</a>
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
+     {% else %}
+       <a class="breadcrumb-home" href="{{site.baseurl}}"><i class="fa fa-home"></i></a>
+      {% endif %}
+    </div>
+  {% capture url_parts %}{{ page.url | replace:'/'," " }}{% endcapture %} 
+  {% capture num_parts %}{{ url_parts | number_of_words }}{% endcapture %}
+  {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+  {% assign page_base = page.url | split: '/' | last %}
+  {% assign previous="" %}
+  {% for unused in (1..num_parts) %}
+    {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..." }}{% endcapture %}
+    {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
+  <div class="breadcrumb-item">
+    {% if first_word == page_base %}
+      {% if page.url == '/' %}
+  <div class="dropdown">
+  <i class="fa fa-home"></i>
+  <style> .dropdown-content { left:-125px; } </style>
+{%else%}
+  <div class="dropdown">
+  <div class="subdirectories dropbtn">/ {{ first_word | replace: '-',' ' }}</div>
+{%endif%}
+  <div class="subdirectory dropdown-content">
+  {% assign page_url = page.url %}
+  {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+  {% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
+  {% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
+  {% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
+  {% for node in site.pages %}
+  {% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+  {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
+  {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
+  {% if node_url_base == page_url %}
+    <a href="{{node.url}}">{{node.title }}</a>
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
+    {% else %}
+      <div class="breadcrumb-item-link"><a href="{{previous}}">{{ first_word | replace: '-',' '}}</a></div> 
+    {% endif %}
+    {% capture url_parts %}{{ url_parts | remove_first:first_word }}{% endcapture %}
+  </div> 
+  {% endfor %}
+</div>
+
+<div class="mobile">	
+
+  <div class="breadcrumb-item">
+    {% if page.url == '/' %}
+      <div tabindex="0" class="onclick-menu">
+{% if page.url == '/' %}
+  <p class="backslash"><i class="fa fa-home"></i></p>
+{% else %}
+  <p class="backslash">/ {{ first_word | replace: '-',' ' }}</p>
+{% endif %}
+  <ul class="onclick-menu-content">
+    {% assign page_url = page.url %}
+    {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+    {% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
+    {% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
+    {% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
+    {% for node in site.pages %}
+    {% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+    {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
+    {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
+    {% if node_url_base == page_url %}
+      <li><a href="{{node.url}}"><button>{{node.title}}</button></a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+    {% else %}
+      <a class="breadcrumb-home" href="{{site.baseurl}}"><i class="fa fa-home"></i></a>
+    {% endif %}
+  </div>
+  {% capture url_parts %}{{ page.url | replace:'/'," " }}{% endcapture %} 
+  {% capture num_parts %}{{ url_parts | number_of_words }}{% endcapture %}
+  {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+  {% assign page_base = page.url | split: '/' | last %}
+  {% assign previous="" %}
+  {% for unused in (1..num_parts) %}
+    {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..." }}{% endcapture %}
+    {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
+  <div class="breadcrumb-item">
+    {% if first_word == page_base %}
+      <div tabindex="0" class="onclick-menu">
+{% if page.url == '/' %}
+  <p class="backslash"><i class="fa fa-home"></i></p>
+  <style> .onclick-menu-content { left:-118.5px; } </style>
+{% else %}
+  <p class="backslash">/ {{ first_word | replace: '-',' ' }} </p>
+{% endif %}
+  <ul class="onclick-menu-content">
+    {% assign page_url = page.url %}
+    {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+    {% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
+    {% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
+    {% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
+    {% for node in site.pages %}
+    {% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+    {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
+    {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
+    {% if node_url_base == page_url %}
+      <li><a href="{{node.url}}"><button>{{node.title}}</button></a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+    {% else %}
+      <div class="breadcrumb-item-link"><a href="{{previous}}">{{ first_word | replace: '-',' ' }}</a></div> 
+    {% endif %}
+    {% capture url_parts %}{{ url_parts | remove_first:first_word }}{% endcapture %}
+  </div> 
+  {% endfor %}
+
+</div>

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# encrypt /dev/sda2 with luks
+set -e
+
+# ensure user is root
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+cryptsetup -c aes-xts-plain64 -s 512 -h sha512 -i 5000 --use-random --verify-passphrase luksFormat /dev/sda2
+cryptsetup luksOpen /dev/sda2 luks

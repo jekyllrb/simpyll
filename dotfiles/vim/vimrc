@@ -1,0 +1,27 @@
+set nocompatible
+set number
+set lazyredraw
+set background=dark
+set autoread
+set wildmenu
+set cmdheight=2
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+set mouse=a
+set nostartofline
+set ruler
+set langmenu=en
+set t_Co=256
+set viminfo+=n/home/$USER/.dotfiles/vim/viminfo
+set backupdir=/home/$USER/.dotfiles/vim/backup
+set directory=/home/$USER/.dotfiles/vim
+
+syntax enable
+colorscheme solarized
+filetype on 
+let $LANG='en' 
+
+autocmd VimEnter * tab all
+autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+
+nmap <C-Tab> :tabnext<cr> 

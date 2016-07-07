@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# automatically generate a netctl profile and connect to a password protected wifi
+set -e
+
+# ensure user is root
+if [ "$(id -u)" != "0" ]; then
+   exec sudo "$0" "$@" 
+fi
+
+INTERFACE=`ip link | grep wl | awk '{print $2}'| sed 's/://' | sed '1!d'`
+ESSID=`iwconfig $INTERFACE | grep 'ESSID:' | awk '{print $4}' | sed 's/ESSID://g' | sed 's/"//g'`
+
+read -p "wifi-password: " WIFI_PASSWORD
+
+# place generated file in /etc/netctl/<insert-user-interface>-<insert-user-essid>
+( cat <<EOF > /etc/netctl/"${INTERFACE}-${ESSID}"
+  Interface="${INTERFACE}"
+  Connection="wireless"
+  Security="wpa"
+  ESSID="${ESSID}"
+  IP="dhcp"
+  Key="${WIFI_PASSWORD}"
+EOF )
+
+# use this newly generated profile to connect to the internet
+netctl start "${INTERFACE}-${ESSID}"

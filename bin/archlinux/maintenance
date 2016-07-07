@@ -1,0 +1,45 @@
+#! /bin/bash
+
+
+
+logs(){
+  mkdir -p ~/logs/
+  systemctl --failed --no-pager | grep failed | awk '{print $2}' > ~/logs/systemctl_failed.txt # Failed Services
+  journalctl -p 0..3 -xn --no-pager > ~/logs/journalctl.txt                                    # Journalctl Logfiles
+  systemd-analyze blame | head > ~/logs/startup_times.txt                                      # Startup Times
+  du /var/lib/systemd/coredump/ > ~/logs/size_of_coredumps.txt                                 # Size Of Coredumps
+  find /home/simpyll/ -type l -! -exec test -e {} \; -print > ~/logs/broken_links.txt          # List Broken Links
+  find /home/simpyll/ -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate > ~/logs/duplicates.txt
+  
+  not_owned(){
+    # find packages unassociated with other installed packages
+    mkdir -p /home/simpyll/logs/not_owned
+    db=/home/simpyll/logs/not_owned/db
+    fs=/home/simpyll/logs/not_owned/fs
+    output=/home/simpyll/logs/not_owned/output
+    trap 'rm -rf "/home/simpyll/logs/not_owned"' EXIT
+    pacman -Qlq | sort -u > "$db"
+    find /etc /opt /usr ! -name lost+found \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
+    comm -23 "$fs" "$db" > "$output"
+    echo $(pacman -Qii | awk '/^MODIFIED/ {print $2}') >> "$output"
+    cat $output | sed -n '/xml/!p' | sed -n '/mime/!p' | sed -n '/ssl/!p' | sed -n '/ca-cert/!p' | sed -n '/usr\/share\/fonts/!p' | sed -n '/etc\/pacman.d/!p' | sort -u
+  }
+  
+  not_owned > /home/simpyll/logs/packages_not_owned.txt
+  
+   # list all packages
+
+  nodeps(){
+    ignoregrp="base base-devel"
+    ignorepkg=""
+    comm -23 <(pacman -Qqt | sort) <(echo $ignorepkg | tr ' ' '\n' | cat <(pacman -Sqg $ignoregrp) - | sort -u)
+  }
+  
+  nodeps > $tmp/packages_no_depends.txt # list of packages with no dependencies
+  echo "Finding Lostfiles"
+
+
+upit
+logs
+
+exit 1

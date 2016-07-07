@@ -1,0 +1,19 @@
+#! /bin/bash
+
+[ -z "$PS1" ] && return
+
+set show-all-if-ambiguous on
+shopt -s checkwinsize
+shopt -s histappend
+
+for line in $(echo "$(shopt -s nullglob dotglob; echo ~/.bash*)" | tr " " "\n" | grep -vE '.bashrc|.bash_logout|.bash_profile|.bash_history') 
+do
+  source $line;
+done
+
+# method to modularize functions
+for f in /home/$USER/bin/functions/*; do
+  source $f
+done
+
+[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null

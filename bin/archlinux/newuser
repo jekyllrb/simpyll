@@ -1,0 +1,7 @@
+#! /bin/bash
+
+useradd -m -g users -G wheel,power,optical,storage,scanner,lp,audio,video -s /bin/bash simpyll
+
+passwd simpyll
+
+sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /etc/sudoers

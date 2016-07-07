@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# start with contents of current folder and recursivly convert every file/directory to use lowercase letters only
+
+find `pwd` -depth -exec sh -c ' echo
+  t=${0%/*}/$(printf %s "${0##*/}" | tr "[:upper:]" "[:lower:]");
+  [ "$t" = "$0" ] || mv -i "$0" "$t"
+' {} \;

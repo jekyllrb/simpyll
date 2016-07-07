@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# Usage: 
+# "brightness up" will increase screen brightness by 10%
+# "brightness down" will decrease screen brightness by 10%
+
+display() {
+  xbacklight -get $1
+}
+
+case "$1" in
+  u|up)
+    display +10;;
+  d|down)
+    display -10;;
+  *)
+    exit 1;;
+esac
