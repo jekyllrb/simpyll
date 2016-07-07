@@ -1,9 +1,0 @@
-#! /bin/bash
-
-# Usage:
-# recursivly remove the '.' from all files starting with one
-
-find `pwd` -depth -exec sh -c ' echo
-  t=${0%/*}/$(printf %s "${0##*/}" | sed -r "s|^\.||" );
-  [ "$t" = "$0" ] || mv -i "$0" "$t"
-' {} \;

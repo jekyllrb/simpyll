@@ -1,7 +1,0 @@
-#! /bin/bash
-
-# Usage:
-# start with contents of current folder and recursivly replace every whitespace with an underscore
-
-find `pwd` -depth -name '* *' \
-    -execdir bash -c 'mv "$1" "${1// /_}"' _ {} \;

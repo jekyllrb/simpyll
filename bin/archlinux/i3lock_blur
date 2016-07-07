@@ -1,7 +1,0 @@
-#! /bin/bash
-
-mkdir -p ~/.tmp/i3lock
-scrot -z 'scrot.png' -e 'mv $f ~/.tmp/i3lock/scrot.png'
-convert ~/.tmp/i3lock/scrot.png -blur 0x6 ~/.tmp/i3lock/scrot1.png
-i3lock -i ~/.tmp/i3lock/scrot1.png # && rm ~/.tmp/i3lock/scrot1.png
-rm -r ~/.tmp

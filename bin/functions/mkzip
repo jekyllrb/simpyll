@@ -1,5 +1,0 @@
-#! /bin/bash
-
-
-# Create a ZIP archive of a file or folder.
-function mkzip() { zip -r "${1%%/}.zip" "$1" ; }

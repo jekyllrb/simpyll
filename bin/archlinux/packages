@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# prints a list of all packages (official and not) installed on arch linux systems
-set -e
-
-yaourt -Qe | cut -d ' ' -f 1 | sed 's/^.*\///'
