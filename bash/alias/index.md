@@ -1,8 +1,11 @@
 ---
 title: alias
+layout: default
 ---
 
-{% highlight bash %}
+```bash
+
+#! /bin/bash
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -34,4 +37,4 @@ alias x='exit'
 alias dot='git clone https://github.com/simpyll/dotfiles.git'
 alias ccat='highlight -O ansi'
 Contact GitHub API Training Shop Blog About
-{% endhighlight %}
+```
