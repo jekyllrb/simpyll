@@ -8,4 +8,4 @@ repository: simpyll
 branch: gh-pages
 google_analytics: # UA-71593532-1
 markdown: kramdown
-Description: A wesite for my linux configs and dotfiles
+Description: A wesite for my linux configs, dotfiles, and other computer science adventures
