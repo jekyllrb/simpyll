@@ -1,3 +1,4 @@
 ---
 title: bash
+layout: default
 ---
