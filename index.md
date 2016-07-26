@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
