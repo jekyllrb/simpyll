@@ -3,8 +3,6 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css">
-<link rel="stylesheet" type="text/css" href="http://handsontable.com/static/css/main.css">
 <script src="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js"></script>
 </head>
 <body>
