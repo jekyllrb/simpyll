@@ -1,0 +1,370 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden], template {
+  display: none;
+}
+
+a {
+  background: transparent;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+dfn {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html input[type=button],
+input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled], html input[disabled] {
+  cursor: default;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+b, strong, optgroup {
+  font-weight: 700;
+}
+
+pre, textarea {
+  overflow: auto;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner, legend {
+  border: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  zoom: 1;
+}
+
+/* IE6 */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+
+/* IE7 */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+input {
+  display: none;
+}
+
+.wrapper1 {
+  margin: 100px auto 50px;
+  width: 96%%;
+  max-width: 900px;
+  padding: 20px;
+}
+.wrapper1 img {
+  max-width: 100%;
+  width: 24%;
+  margin: 0.25%;
+}
+.wrapper1 label {
+  display: inline-block;
+  width: 24%;
+  padding: 10px;
+  margin: 0 0.25% 10px;
+  text-align: center;
+  background: #365da1;
+  border: 7px solid white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #333;
+  color: white;
+  font-size: 20px;
+  text-shadow: 1px 1px 1px #333;
+}
+.wrapper1 input {
+  display: none;
+}
+.wrapper1 input:checked ~ img {
+  display: none;
+}
+.wrapper1 input:checked + label {
+  background: #f1c40f;
+}
+.wrapper1 #murraycontroller:checked ~ .billmurray {
+  display: inline-block;
+}
+.wrapper1 #dogecontroller:checked ~ .doge {
+  display: inline-block;
+}
+.wrapper1 #vanillacontroller:checked ~ .vanillaice {
+  display: inline-block;
+}
+.wrapper1 #catcontroller:checked ~ .cat {
+  display: inline-block;
+}
+
+p.another {
+  margin: 0 auto 50px;
+  font-size: 25px;
+  text-align: center;
+}
+p.another .proudfeet {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: black;
+  border: 5px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+p.another .proudfeet:hover {
+  padding: 5px;
+  background: white;
+  color: black;
+  border: 5px solid black;
+}
+
+.wrapper2 {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #333;
+  position: relative;
+}
+.wrapper2 .mobileonly {
+  display: none;
+}
+.wrapper2 p {
+  line-height: 25px;
+}
+.wrapper2 .sidebar {
+  width: 30%;
+  background: lightgrey;
+  color: #333;
+  float: left;
+  position: absolute;
+  top: 100px;
+  bottom: 40px;
+}
+.wrapper2 .sidebar label {
+  width: 100%;
+  border-bottom: 1px solid white;
+}
+.wrapper2 input:checked + div {
+  display: block;
+}
+.wrapper2 .maincontent {
+  display: none;
+}
+.wrapper2 .main {
+  width: 70%;
+  float: right;
+  padding-left: 40px;
+}
+.wrapper2 .main h2 {
+  margin-top: 0;
+}
+.wrapper2 label {
+  background: lightgrey;
+  display: inline-block;
+  float: left;
+  width: 32.8%;
+  padding: 10px;
+  margin: 1px 0.25%;
+}
+.wrapper2 .option2:checked[type="checkbox"] + .content2 {
+  display: block;
+}
+.wrapper2 .option3[type="checkbox"]:checked + .content3 {
+  display: block;
+}
+.wrapper2 input[type="checkbox"]:checked + .content {
+  display: none;
+}
+.wrapper2 .content {
+  clear: both;
+  padding: 1px 0 0 0;
+}
+.wrapper2 .content2,
+.wrapper2 .content3 {
+  display: none;
+}
+
+@media all and (max-width: 767px) {
+  .wrapper2 {
+    width: 96%;
+    padding: 5px;
+  }
+  .wrapper2 .desktoponly {
+    display: none;
+  }
+  .wrapper2 .mobileonly {
+    display: block;
+  }
+  .wrapper2 input:checked + .content {
+    display: none;
+  }
+  .wrapper2 .option2:checked + .content {
+    display: block;
+  }
+  .wrapper2 .option3:checked + .content {
+    display: block;
+  }
+  .wrapper2 label {
+    display: inline-block;
+    width: 100%;
+  }
+  .wrapper2 .sidebar {
+    bottom: 25px;
+  }
+}
