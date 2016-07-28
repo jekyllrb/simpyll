@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Checkbox Hacks, Yo!</title>
+</head>
+<body>
+
+	<div class="wrapper1">
+		<h1>Only show me pictures of:</h1>
+		<input type="checkbox" name="controllers" id="murraycontroller">
+		<label class="murraycontroller" for="murraycontroller">Bill Murray</label>
+		<input type="checkbox" name="controllers" id="dogecontroller">
+		<label class="dogecontroller" for="dogecontroller">Doge</label>
+		<input type="checkbox" name="controllers" id="vanillacontroller">
+		<label class="vanillacontroller" for="vanillacontroller">Vanilla Ice</label>
+		<input type="checkbox" name="controllers" id="catcontroller">	
+		<label class="catcontroller" for="catcontroller">Cats</label>
+
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+		<img src="http://www.placedoge.com/200/200" alt="" class="photo doge">
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+		<img src="http://www.placedoge.com/200/200" alt="" class="photo doge">
+		<img src="http://www.nicenicejpg.com/200/200" alt="" class="photo vanillaice">
+		<img src="http://www.placekitten.com/200/200" alt="" class="photo cat">
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+		<img src="http://www.nicenicejpg.com/200/200" alt="" class="photo vanillaice">
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+		<img src="http://www.placedoge.com/200/200" alt="" class="photo doge">
+		<img src="http://www.nicenicejpg.com/200/200" alt="" class="photo vanillaice">
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+		<img src="http://www.nicenicejpg.com/200/200" alt="" class="photo vanillaice">
+		<img src="http://www.placedoge.com/200/200" alt="" class="photo doge">
+		<img src="http://www.placekitten.com/200/200" alt="" class="photo cat">
+		<img src="http://www.fillmurray.com/200/200" alt="" class="photo billmurray">
+	</div>
+
+	<div class="wrapper2 clearfix">
+		<h1>Accordion</h1>
+		<div class="option1">
+			<label for="option1" name="option1" class="option1">Option 1</label>
+			<label for="option2" name="option2" class="option2 desktoponly">Option 2</label>
+			<label for="option3" name="option3" class="option3 desktoponly">Option 3</label>
+			<input type="checkbox" name="option1" id="option1" class="option1">
+			<div class="content content1">
+				<h2>Heading 1</h2>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+				<p>Sed posuere consectetur est at lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit libero, a pharetra augue. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			</div>
+		</div>
+
+		<div class="option2">
+			<label for="option2" name="option2" class="option2 mobileonly">Option 2</label>
+			<input type="checkbox" name="option2" id="option2" class="option2">
+			<div class="content content2">
+				<h2>Heading 2</h2>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor.</p>
+			</div>
+		</div>
+
+		<div class="option3">
+			<label for="option3" name="option3" class="option3 mobileonly">Option 3</label>
+			<input type="checkbox" name="option3" id="option3" class="option3">
+			<div class="content content3">
+				<h2>Heading 3</h2>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+		</div>
+	</div>
+	<!-- ******************************************* -->
+	<!-- *************// END ACCORDION //*********** -->
+	<!-- ******************************************* -->
+
+
+
+	<div class="wrapper2 clearfix">
+		<h1>CSS Tabs</h1>
+		<div class="sidebar">
+			<label for="tab1" class="tab tab1">Tab 1</label>
+			<label for="tab2" class="tab tab2">Tab 2</label>
+			<label for="tab3" class="tab tab3">Tab 3</label>
+		</div>
+
+		<div class="main">
+
+			<input type="radio" id="tab1" class="tab tab1" name="tab" checked="true">
+			<div class="maincontent main1">
+				<h2>Example 1</h2>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+
+				<p>Sed posuere consectetur est at lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla vitae elit libero, a pharetra augue. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			</div>
+
+			<input type="radio" id="tab2" class="tab tab2" name="tab">
+			<div class="maincontent main2">
+				<h2>Example 2</h2>
+				<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+
+				<p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor.</p>
+			</div>
+
+			<input type="radio" id="tab3" class="tab tab3" name="tab">
+			<div class="maincontent main3">
+				<h2>Example 3	</h2>
+				<p>Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+
+				<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam quis risus eget urna mollis ornare vel eu leo. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+			</div>
+
+		</div>
+
+	</div>
+
+	<p class="another">Another little ditty from <a href="http://www.proudfeet.io" class="proudfeet">Proudfeet</a></p>
+
+
+
+
+
+	
+</body>
+</html>
