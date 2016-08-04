@@ -3,7 +3,7 @@ title: home
 layout: default
 ---
 
-{% include assets/scripts/table.js %}
+{% include assets/scripts/table.js.html %}
 
 <style>
 table.example {
