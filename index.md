@@ -3,7 +3,7 @@ title: home
 layout: default
 ---
 
-<script src="https://cdn.rawgit.com/simpyll/simpyll/gh-pages/_includes/assets/scripts/table.js"><script>
+{% include assets/scripts/table.js %}
 
 <style>
 table.example {
