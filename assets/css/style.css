@@ -246,19 +246,20 @@ a:active {
   font-weight: 400;
   position: relative;
   text-align: center;
-  height: 2em;
   display: inline-block;
   width: 100%;
+  box-sizing: border-box;
+  height: 100%;
 }
+
 
 h1 {
   font-weight: 100;
   text-transform: capitalize;
   color: #428bca;
-  margin: 1em 0.25em 0;
+  margin: 1em 0.25em;
   font-family: "Josefin Slab", Georgia, "Times New Roman", Times, serif;
   font-size: 2em;
-  text-align: center;
 }
 
 h2 {
@@ -272,7 +273,6 @@ h2 {
   margin: 1em 0.25em 0;
   font-family: "Josefin Slab", Georgia, "Times New Roman", Times, serif;
   text-align: center;
-
 }
 
 h3 {
