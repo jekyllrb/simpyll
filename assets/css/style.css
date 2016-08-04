@@ -252,7 +252,6 @@ a:active {
   height: 100%;
 }
 
-
 h1 {
   font-weight: 100;
   text-transform: capitalize;
@@ -260,6 +259,16 @@ h1 {
   margin: 1em 0.25em;
   font-family: "Josefin Slab", Georgia, "Times New Roman", Times, serif;
   font-size: 2em;
+}
+
+h1:before, h1:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 2em;
+  height: 2px;
+  background: #428bca;
+  margin: 0 .5em;
 }
 
 h2 {
