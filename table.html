@@ -1,0 +1,225 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <title>pn.ui.filter.TableFilter</title>
+  <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>            
+  <script type="text/javascript" src="picnet.table.filter.min.js"></script>    
+  <link rel="stylesheet" href="css/demo.css"> 
+  
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //  Randomly Create Data Rows
+            for (var i = 0; i < 50; i++) {
+              var tr = $('<tr>' +
+                '<td>Value' + Math.floor(Math.random() * 500) + '</td>' +
+                '<td>' + Math.floor(Math.random() * 500) + ' </td>' +
+                '<td>' + (Math.random() > 0.5 ? 'yes' : 'no') + '</td>' +
+                '<td>' + (Math.random() <= 0.333 ? 'Item 1' : Math.random() > 0.5 ? 'Item 2' : 'Item 3') + '</td>' +
+                '<td></td>' +
+                '<td>' + parseInt(10 + Math.random() * 18) + '/' + parseInt(10 + Math.random() * 2) + '/2009</td>' +
+                '<td></td>' +
+                '</tr>');
+              $('#demotable1 tbody').append(tr);
+            }
+
+          for (var i = 0; i < 50; i++) {
+            var tr = $('<tr><td>Value(2) ' + Math.floor(Math.random() * 500) + '</td></tr>');
+            $('#demotable2 tbody').append(tr);
+          }
+
+          // Initialise Plugin
+            var options1 = {
+                additionalFilterTriggers: [$('#onlyyes'), $('#onlyno'), $('#quickfind')],
+                clearFiltersControls: [$('#cleanfilters')],
+                matchingRow: function(state, tr, textTokens) {
+                  if (!state || !state.id) {
+                    return true;
+                  }
+                  var child = tr.children('td:eq(2)');
+                  if (!child) return true;
+                  var val = child.text();
+                  switch (state.id) {
+                  case 'onlyyes':
+                    return state.value !== true || val === 'yes';
+                  case 'onlyno':
+                    return state.value !== true || val === 'no';
+                  default:
+                    return true;
+                  }
+                }
+            };
+
+            $('#demotable1').tableFilter(options1);
+      
+           var grid2 = $('#demotable2');
+           var options2 = {                
+        
+           filteringRows: function(filterStates) {
+                grid2.addClass('filtering');
+              },
+              filteredRows: function(filterStates) {
+                grid2.removeClass('filtering');
+                setRowCountOnGrid2();
+              }
+            };      
+     
+            function setRowCountOnGrid2() {
+              var rowcount = grid2.find('tbody tr:not(:hidden)').length;
+              $('#rowcount').text('(Rows ' + rowcount + ')');
+            }
+
+            grid2.tableFilter(options2); // No additional filters      
+            setRowCountOnGrid2();
+        });
+    </script>
+<style type="text/css">
+body {
+
+  }
+h3 {
+  font-size:1em;
+  }
+.wrapper {
+  width:640px;
+  margin:0 auto;
+  }
+.header {
+  width:640px;
+  margin-bottom:20px;
+  padding-bottom:10px;
+  border-bottom:1px solid #ddd;
+  }
+.content {
+  font-size:8pt;
+  clear:both;
+  }
+.header,
+.picnet_logo, 
+.instructions,
+.column1,
+.column2 {
+  display:inline;
+  position:relative;
+  float:left;
+  }
+
+table,
+td,
+th {
+  border: solid 1px silver;
+  color:#666;
+  padding:5px;
+  font-size:8pt;
+  }
+table {
+  border-collapse:collapse;
+  }
+table tr {
+  background-color:#eee;
+  }
+
+table td, table th{
+    border:1px solid #fff;}
+.column1 {
+  width:480px
+  }
+.column2{
+  width:100px;
+  margin-left:60px;
+  }
+table#demotable2 {
+  width:100px;
+}
+th {
+  background-color:#333;
+  color:#fff;
+  font-size:0.85em
+  }
+a {
+  color:#0079c1;
+  text-decoration:none;
+  }  
+a:hover {
+  text-decoration:underline;
+  }
+.filtering {
+  background-color:light-gray
+  }
+#jqtf_filters {
+  list-style:none;  
+  }
+#jqtf_filters li {
+  display:inline-block; 
+  position:relative; 
+  float:left;
+  margin-bottom:20px
+  }
+#quickfind {
+  width:480px;
+  border:1px solid #ccc;
+  }
+.clear {
+  clear:both
+  }
+hr {
+  margin-top:20px;
+  border:1px dotted #eee;
+  width:640px;
+  }
+#cleanfilters {
+  margin-left:20px;
+  }
+  
+</style>
+</head>
+<body>  
+<div class="wrapper">
+  <div class="header">
+    <div class="picnet_logo">
+    </div>  
+    <div class="instructions">
+    <h2>pn.ui.filter.TableFilter</h2>
+    <p>
+    Filter through the cells by typing in the input fields at the top of the columns. You can also filter using a dropdown list, checkboxes and a search bar. 
+    <br>For more information visit the
+    <a href="http://www.picnet.com.au/picnet_table_filter.html" target="_blank" title="Opens in a new window">Plugin Page</a> or <a href="http://www.picnet.com.au/contact_us.html" target="_blank" title="Opens in a new window">contact us</a>.
+    </p>
+    </div>
+  </div>
+  <div class="content">
+    <h3>Additional Filters for Table 1</h3>
+    Only Show Yes: <input type="checkbox" id="onlyyes">          
+    Only Show No: <input type="checkbox" id="onlyno">
+         &nbsp;<input type="submit" value="Set Quick Find filter and refresh table" onclick="$('#quickfind').val('12'); $('#demotable1').tableFilterApplyFilterValues();">
+    <br>      <br>    
+    Quick Find: <input type="text" id="quickfind" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators.">
+
+    <a id="cleanfilters" href="#">Clear Filters</a>
+    <div class="clear"></div>
+    <br>
+    <div class="column1">  
+      <h3>Table 1</h3>
+      <table id="demotable1">
+        <thead>
+          <tr><th>Text Column 1</th><th>Number Column</th><th>Yes/No Column</th><th filter-type="ddl">List Column</th><th filter="false">No Filter</th><th>Date Column</th><th filter="false">Empty</th></tr>
+        <tr class="filters"><td><input type="text" id="demotable1_filter_0" class="filter" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators." style="width: 95%;"></td><td><input type="text" id="demotable1_filter_1" class="filter" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators." style="width: 95%;"></td><td><input type="text" id="demotable1_filter_2" class="filter" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators." style="width: 95%;"></td><td><select id="demotable1_filter_3" class="filter" style="width: 95%;"><option>Select...</option><option value="Item 1">Item 1</option><option value="Item 2">Item 2</option><option value="Item 3">Item 3</option></select></td><td></td><td><input type="text" id="demotable1_filter_5" class="filter" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators." style="width: 95%;"></td><td></td></tr></thead>
+        <tbody>
+        <tr><td>Value320</td><td>481 </td><td>yes</td><td>Item 1</td><td></td><td>13/11/2009</td><td></td></tr><tr><td>Value469</td><td>220 </td><td>no</td><td>Item 1</td><td></td><td>20/11/2009</td><td></td></tr><tr><td>Value166</td><td>119 </td><td>no</td><td>Item 2</td><td></td><td>15/11/2009</td><td></td></tr><tr><td>Value19</td><td>43 </td><td>yes</td><td>Item 3</td><td></td><td>10/10/2009</td><td></td></tr><tr><td>Value436</td><td>36 </td><td>no</td><td>Item 1</td><td></td><td>10/10/2009</td><td></td></tr><tr><td>Value365</td><td>40 </td><td>yes</td><td>Item 2</td><td></td><td>15/10/2009</td><td></td></tr><tr><td>Value276</td><td>163 </td><td>yes</td><td>Item 2</td><td></td><td>13/11/2009</td><td></td></tr><tr><td>Value371</td><td>393 </td><td>yes</td><td>Item 1</td><td></td><td>19/11/2009</td><td></td></tr><tr style=""><td>Value465</td><td>163 </td><td>no</td><td>Item 2</td><td></td><td>12/10/2009</td><td></td></tr><tr><td>Value391</td><td>257 </td><td>yes</td><td>Item 2</td><td></td><td>10/10/2009</td><td></td></tr><tr><td>Value205</td><td>328 </td><td>no</td><td>Item 2</td><td></td><td>18/10/2009</td><td></td></tr><tr><td>Value92</td><td>357 </td><td>no</td><td>Item 2</td><td></td><td>24/10/2009</td><td></td></tr><tr style=""><td>Value14</td><td>490 </td><td>yes</td><td>Item 2</td><td></td><td>12/10/2009</td><td></td></tr><tr><td>Value236</td><td>311 </td><td>no</td><td>Item 1</td><td></td><td>24/11/2009</td><td></td></tr><tr><td>Value22</td><td>307 </td><td>no</td><td>Item 2</td><td></td><td>23/10/2009</td><td></td></tr><tr><td>Value399</td><td>324 </td><td>no</td><td>Item 3</td><td></td><td>19/10/2009</td><td></td></tr><tr><td>Value477</td><td>20 </td><td>no</td><td>Item 1</td><td></td><td>22/11/2009</td><td></td></tr><tr><td>Value249</td><td>399 </td><td>no</td><td>Item 2</td><td></td><td>27/11/2009</td><td></td></tr><tr><td>Value140</td><td>103 </td><td>yes</td><td>Item 1</td><td></td><td>20/10/2009</td><td></td></tr><tr style=""><td>Value377</td><td>126 </td><td>no</td><td>Item 3</td><td></td><td>22/10/2009</td><td></td></tr><tr><td>Value313</td><td>358 </td><td>yes</td><td>Item 2</td><td></td><td>16/11/2009</td><td></td></tr><tr><td>Value280</td><td>463 </td><td>yes</td><td>Item 3</td><td></td><td>20/11/2009</td><td></td></tr><tr><td>Value353</td><td>475 </td><td>no</td><td>Item 2</td><td></td><td>21/10/2009</td><td></td></tr><tr><td>Value296</td><td>473 </td><td>no</td><td>Item 1</td><td></td><td>26/10/2009</td><td></td></tr><tr><td>Value382</td><td>23 </td><td>no</td><td>Item 1</td><td></td><td>22/10/2009</td><td></td></tr><tr><td>Value242</td><td>79 </td><td>no</td><td>Item 1</td><td></td><td>15/10/2009</td><td></td></tr><tr><td>Value149</td><td>388 </td><td>yes</td><td>Item 1</td><td></td><td>11/11/2009</td><td></td></tr><tr><td>Value351</td><td>398 </td><td>yes</td><td>Item 1</td><td></td><td>21/10/2009</td><td></td></tr><tr style=""><td>Value196</td><td>112 </td><td>no</td><td>Item 3</td><td></td><td>20/11/2009</td><td></td></tr><tr><td>Value371</td><td>74 </td><td>yes</td><td>Item 1</td><td></td><td>15/10/2009</td><td></td></tr><tr><td>Value303</td><td>114 </td><td>yes</td><td>Item 3</td><td></td><td>27/11/2009</td><td></td></tr><tr><td>Value437</td><td>361 </td><td>no</td><td>Item 1</td><td></td><td>10/10/2009</td><td></td></tr><tr><td>Value75</td><td>2 </td><td>no</td><td>Item 1</td><td></td><td>16/11/2009</td><td></td></tr><tr><td>Value70</td><td>198 </td><td>yes</td><td>Item 2</td><td></td><td>19/10/2009</td><td></td></tr><tr><td>Value109</td><td>14 </td><td>no</td><td>Item 2</td><td></td><td>13/11/2009</td><td></td></tr><tr><td>Value394</td><td>336 </td><td>no</td><td>Item 1</td><td></td><td>15/11/2009</td><td></td></tr><tr><td>Value90</td><td>364 </td><td>yes</td><td>Item 3</td><td></td><td>20/11/2009</td><td></td></tr><tr><td>Value440</td><td>240 </td><td>no</td><td>Item 2</td><td></td><td>26/10/2009</td><td></td></tr><tr><td>Value384</td><td>311 </td><td>no</td><td>Item 1</td><td></td><td>22/11/2009</td><td></td></tr><tr><td>Value266</td><td>360 </td><td>no</td><td>Item 2</td><td></td><td>27/11/2009</td><td></td></tr><tr style=""><td>Value104</td><td>312 </td><td>yes</td><td>Item 1</td><td></td><td>19/10/2009</td><td></td></tr><tr><td>Value321</td><td>361 </td><td>no</td><td>Item 2</td><td></td><td>25/10/2009</td><td></td></tr><tr><td>Value74</td><td>242 </td><td>yes</td><td>Item 3</td><td></td><td>23/10/2009</td><td></td></tr><tr><td>Value7</td><td>151 </td><td>no</td><td>Item 1</td><td></td><td>16/11/2009</td><td></td></tr><tr><td>Value18</td><td>410 </td><td>yes</td><td>Item 3</td><td></td><td>21/11/2009</td><td></td></tr><tr><td>Value86</td><td>283 </td><td>yes</td><td>Item 2</td><td></td><td>26/10/2009</td><td></td></tr><tr><td>Value287</td><td>377 </td><td>yes</td><td>Item 3</td><td></td><td>10/11/2009</td><td></td></tr><tr style=""><td>Value348</td><td>415 </td><td>yes</td><td>Item 2</td><td></td><td>12/10/2009</td><td></td></tr><tr style=""><td>Value119</td><td>173 </td><td>yes</td><td>Item 3</td><td></td><td>12/10/2009</td><td></td></tr><tr><td>Value300</td><td>79 </td><td>yes</td><td>Item 1</td><td></td><td>24/10/2009</td><td></td></tr></tbody>
+      </table>
+    </div>
+    
+    <div class="column2">  
+      <h3>Table 2 <span id="rowcount">(Rows 50)</span></h3>
+      <table id="demotable2" class="">
+        <thead>
+          <tr><th>Text Column 2</th></tr>
+        <tr class="filters"><td><input type="text" id="demotable2_filter_0" class="filter" title="Quotes (&quot;) match phrases. (not) excludes a match from the results. (or) can be used to do Or searches. I.e. [red or blue] will match either red or blue. Numeric values support >=, >, <=, <, = and != operators." style="width: 95%;"></td></tr></thead>
+        <tbody>
+        <tr><td>Value(2) 30</td></tr><tr><td>Value(2) 467</td></tr><tr><td>Value(2) 107</td></tr><tr><td>Value(2) 459</td></tr><tr><td>Value(2) 45</td></tr><tr><td>Value(2) 83</td></tr><tr><td>Value(2) 442</td></tr><tr><td>Value(2) 203</td></tr><tr><td>Value(2) 357</td></tr><tr><td>Value(2) 280</td></tr><tr><td>Value(2) 49</td></tr><tr><td>Value(2) 378</td></tr><tr><td>Value(2) 405</td></tr><tr><td>Value(2) 282</td></tr><tr><td>Value(2) 349</td></tr><tr><td>Value(2) 313</td></tr><tr><td>Value(2) 227</td></tr><tr><td>Value(2) 203</td></tr><tr><td>Value(2) 57</td></tr><tr><td>Value(2) 230</td></tr><tr><td>Value(2) 361</td></tr><tr><td>Value(2) 354</td></tr><tr><td>Value(2) 424</td></tr><tr><td>Value(2) 124</td></tr><tr><td>Value(2) 308</td></tr><tr><td>Value(2) 136</td></tr><tr><td>Value(2) 33</td></tr><tr><td>Value(2) 4</td></tr><tr><td>Value(2) 346</td></tr><tr><td>Value(2) 320</td></tr><tr><td>Value(2) 241</td></tr><tr><td>Value(2) 207</td></tr><tr><td>Value(2) 91</td></tr><tr><td>Value(2) 79</td></tr><tr><td>Value(2) 317</td></tr><tr><td>Value(2) 306</td></tr><tr><td>Value(2) 431</td></tr><tr><td>Value(2) 202</td></tr><tr><td>Value(2) 452</td></tr><tr><td>Value(2) 401</td></tr><tr><td>Value(2) 347</td></tr><tr><td>Value(2) 308</td></tr><tr><td>Value(2) 101</td></tr><tr><td>Value(2) 205</td></tr><tr><td>Value(2) 279</td></tr><tr><td>Value(2) 21</td></tr><tr><td>Value(2) 144</td></tr><tr><td>Value(2) 186</td></tr><tr><td>Value(2) 269</td></tr><tr><td>Value(2) 17</td></tr></tbody>
+      </table>
+    </div>  
+    <div class="clear"></div>
+    <hr>
+    <p>This plugin was developed by <a href="mailto:guido.tapia@picnet.com.au">Guido Tapia</a> - <a href="http://www.picnet.com.au/software_development.html">Software Development</a> manager at <a href="http://www.picnet.com.au">PicNet</a>.</p>
+  </div>
+</div>
+  
+</body></html>
