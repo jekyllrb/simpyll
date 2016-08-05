@@ -1,0 +1,16 @@
+<div class="container-fluid"><div class="row">
+<div class="col-xs-1">
+  <a class="box" href='{{ site.baseurl }}'>Home</a>
+</div>
+{% assign crumbs = page.url | remove:'.html' | split: '/' %}
+{% for crumb in crumbs offset: 1 %}{% if forloop.last %}
+<div class="col-xs-1">
+  <a class="box">{{ crumb | replace:'-',' ' | remove:'/index.html' | capitalize }}</a>
+</div>
+{% else %}
+<div class="col-xs-1">
+  <a class="box" href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'/index.html' | capitalize }}</a>
+</div>
+{% endif %}{% endfor %}
+</div>
+</div>
