@@ -3,6 +3,8 @@ title: Home
 layout: default
 ---
 
+<link rel="stylesheet" href="{{ 'jekyll/sort/sort.css' | prepend:site.baseurl }}">
+
 {% assign sorted_pages = (site.pages | sort: 'title') %}
 {% assign sorted_pages_reversed = (site.pages | sort: 'title' | reverse ) %}
 
