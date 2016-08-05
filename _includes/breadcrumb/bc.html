@@ -1,0 +1,35 @@
+<ul>
+{% if page.url == '/' %}
+  <li><a class="breadcrumb-home" href="{{site.baseurl}}"><i class="fa fa-home"></i></a></li>
+{% endif %}
+  
+{% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+{% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
+{% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
+{% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
+
+{% for node in site.pages %}
+  {% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+  {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
+  {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
+
+  {% if node_url_base == page_url %}
+  
+  <li><a href="{{node.url}}">{{node.title}}</a></li>
+  {% else %}
+
+  {% capture url_parts %}{{ page.url | replace:'/'," " }}{% endcapture %} 
+  {% capture num_parts %}{{ url_parts | number_of_words }}{% endcapture %}
+  {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+  {% assign page_base = page.url | split: '/' | last %}
+  {% assign previous="" %}
+
+  {% for unused in (1..num_parts) %}
+  {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..." }}{% endcapture %}
+  {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
+  <li><a href="{{previous}}">{{ first_word | replace: '-',' '}}</a></li>
+  {% endfor %}
+
+  {% endif %}
+{% endfor %}
+</ul>
