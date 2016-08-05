@@ -3,4 +3,4 @@ title: jekyll
 layout: default
 ---
 
-<a link="jekyll/sort/sort.css"></a>
+<link rel="stylesheet" href="{{ site.baseurl }}jekyll/sort/sort.css">
