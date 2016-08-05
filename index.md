@@ -20,9 +20,30 @@ layout: default
 	</tr>
 	<tr>
 		<th>Filter:</th>
-		<th><select onchange="Table.filter(this,this)"><option value="">All</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></th>
-		<th><input name="filter" size="8" onkeyup="Table.filter(this,this)"></th>
-		<th><select onchange="Table.filter(this,this)"><option value="function(){return true;}">All</option><option value="function(val){return parseFloat(val.replace(/\$/,''))>1;}">&gt; $1</option><option value="function(val){return parseFloat(val.replace(/\$/,''))<=1;}">&lt;= $1</option></select></th>
+		
+		<th>
+		<select onchange="Table.filter(this,this)">
+		<option value="">All</option>
+		<option value="0">0</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		</select>
+		</th>
+		
+		<th>
+		<input name="filter" size="8" onkeyup="Table.filter(this,this)">
+		</th>
+		
+		<th>
+		<select onchange="Table.filter(this,this)">
+		<option value="function(){return true;}">All</option>
+		<option value="function(val){return parseFloat(val.replace(/\$/,''))>1;}">&gt; $1</option>
+		<option value="function(val){return parseFloat(val.replace(/\$/,''))<=1;}">&lt;= $1</option>
+		</select>
+		</th>
 	</tr>
 </thead>
 <tbody>
