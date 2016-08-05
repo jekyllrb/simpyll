@@ -5,7 +5,7 @@ layout: default
 
 {% include assets/scripts/table.js.html %}
 
-{% include assets/styles/table.css.html %}
+{% include assets/style/elements/table.css.html %}
 
 <table class="example table-stripeclass:alternate" id="TABLE_4">
 <thead>
