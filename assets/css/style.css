@@ -261,7 +261,7 @@ h1 {
   font-size: 2em;
 }
 
-h1:before, h1:after {
+h2:before, h2:after {
   content: "";
   display: inline-block;
   vertical-align: middle;
