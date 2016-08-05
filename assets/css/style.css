@@ -424,6 +424,7 @@ button:focus {
   display: block;
 }
 
+/*
 .box {
   display: block;
   height: 100%;
@@ -436,6 +437,7 @@ button:focus {
   margin-top: 1.5em;
   top: -1em;
 }
+*/
 
 .box-comments {
   margin: 0 auto;
@@ -453,56 +455,4 @@ button:focus {
   transform: translate(-50%, -50%);
   width: 40%;
   height: 50%;
-}
-
-.row {
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -.5rem;
-  margin-left: -.5rem;
-}
-
-.col {
-  -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -webkit-flex-basis: 0;
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    max-width: 100%;
-        box-sizing: border-box;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-    -ms-flex: 0 0 auto;
-    flex: 0 0 auto;
-    padding-right: .5rem;
-    padding-left: .5rem;
-}
-
-.item-1 {
-  order: 1;
-  margin-bottom: 1rem;
-  padding: 1rem;
-}
-
-.item-2 {
-  order: 2;
-  margin-bottom: 1rem;
-  padding: 1rem;
 }
