@@ -54,9 +54,6 @@ a.hide:focus ~ #menu { opacity: 0; height: 0em; }
 }
 
 .tabs label {
-    display: block;
-    float: left;
-    width: 33.3333%;
     color: #ccc;
     font-size: 30px;
     font-weight: normal;
@@ -64,7 +61,6 @@ a.hide:focus ~ #menu { opacity: 0; height: 0em; }
     text-align: center;
     line-height: 2;
     cursor: pointer;
-    transition: all 0.5s;
 }
  
 .tabs label span {
