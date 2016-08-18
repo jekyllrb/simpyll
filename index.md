@@ -15,3 +15,5 @@ layout: default
 | 8/16/16 |             |              |              |    25            |
 
 * OM in lbs/k
+
+{% include dynamicmenu.html %}
