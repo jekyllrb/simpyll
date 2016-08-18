@@ -16,5 +16,4 @@ layout: default
 
 * OM in lbs/k
 
-{% include dynamicmenu.html %}
 {% include dynamicmenu.html root="/" %}
