@@ -1,6 +1,6 @@
 ---
 title: home
-layout: default
+layout: right
 ---
 
 
