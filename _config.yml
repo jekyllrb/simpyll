@@ -1,11 +1,10 @@
-title: Simpyll
+title: simpyll
+description: my blog
 url: http://simpyll.com
 baseurl: "/"
-disqus: simpyll
 twitter: simpyll
 github: simpyll
 repository: simpyll
 branch: gh-pages
 google_analytics: # UA-71593532-1
 markdown: kramdown
-Description: A wesite for my linux configs, dotfiles, and other computer science adventures
