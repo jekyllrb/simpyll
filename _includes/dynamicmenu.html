@@ -43,7 +43,7 @@ if newLevel %}{%
 if nextPathLength >= lastPathLength %}<ul class="{{ include.listClass }}" {{ depthAttr }}="{{ depth }}">{%
 else %}</li></ul>{% 
 endif %}{% 
-else %}</li>{%
+else %}<!--</li>-->{%
 endif %}{% 
 assign depth = nextPathLength | minus: rootComponentsLength %}<li class="{{ include.listItemClass }}">{%
 if sortedPage.content != '' %}<a href="{{ sortedPage.url }}" class="{{ include.linkClass }} {%
