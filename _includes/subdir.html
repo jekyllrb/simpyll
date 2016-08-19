@@ -1,14 +1,15 @@
-{% assign url_parts = page.url | split: '/' %}
-{% assign url_parts_size = url_parts | size %}
-{% assign dir = url_parts | last %}
+{% 
+assign url_parts = page.url | split: '/' %}{% 
+assign url_parts_size = url_parts | size %}{% 
+assign dir = url_parts | last %}
 
-{% for page in site.pages %}
-  {% if page.url contains dir %}
-    {% assign page_url_parts = page.url | split: '/' %}
-    {% assign page_url_parts_size = page_url_parts | size | minus:1 %}
-    {% assign filename = page_url_parts | last %}
-    {% if url_parts_size == page_url_parts_size and filename != 'index.html' %}
-      <div class="col-xs-offset-{{ url_parts_size | minus:1 }} col-xs-1"><a class="box" href='{{page.url}}'>{{page.title | replace:'_',' ' | capitalize }}</a></div>
-    {% endif %}
-  {% endif %}
-{% endfor %}
+{% 
+for page in site.pages %}{% 
+if page.url contains dir %}{% 
+assign page_url_parts = page.url | split: '/' %}{% 
+assign page_url_parts_size = page_url_parts | size | minus:1 %}{% 
+assign filename = page_url_parts | last %}{% 
+if url_parts_size == page_url_parts_size and filename != 'index.html' %}<a class="box" href='{{page.url}}'>{{page.title | replace:'_',' ' | capitalize }}</a>{% 
+endif %}{% 
+endif %}{% 
+endfor %}
