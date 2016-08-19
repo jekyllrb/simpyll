@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include layout/head.html %}
-  <body>
-  {% include layout/slideout.html %}
-    <main id="panel">
-    {% include layout/header.html %}
-    {% include breadcrumb/bc.html %}
-      <div class="content">
-        <div class="box">
-          <div class="title"><h2>{{page.title}}</h2></div>
-          {% if page.description %}<div class="description">{{ page.description }}</div>{% endif %}
-          {{content}}
-        </div>
-        <div class="filler"></div>
-      </div>
-      {% include layout/footer.html %}
-    </main>
-    {% include layout/scripts.html %}
-  </body>
-</html>
+  
+{% 
+include layout/head.html %}<body>{% 
+include layout/slideout.html %}<main id="panel">{%
+include layout/header.html %}{% 
+include breadcrumb/bc.html %}<div class="content"><div class="box"><div class="title"><h2>{{page.title}}</h2></div>{%
+if page.description %}<div class="description">{{ page.description }}</div>{% 
+endif %}{{content}}</div><div class="filler"></div></div>{%
+include layout/footer.html %}</main>{% 
+include layout/scripts.html %}</body></html>
