@@ -166,10 +166,8 @@ input[type=checkbox]:checked ~ #menu{
       {% endcapture %}
     {% endunless %}
 
-    
-
-    <ul class="hidden"></ul><a href="{{ node.url }}"></a>
-    <li><a>{{ node.title | escape }}</a></li>
+    <ul id="menu">{{ _menu_inside }}</ul>
+    <li><a href="{{ node.url }}">{{ node.title | escape }}</a></li>
       {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
       {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
     </li>
@@ -177,26 +175,14 @@ input[type=checkbox]:checked ~ #menu{
   {% endfor %} <!--- node in _pages --->
 {% endcapture %} <!--- menu inside --->
 
-
-
 <label for="show-menu" class="show-menu"></label>
 <input type="checkbox" id="show-menu" role="button">
 
+{% unless _menu_inside == "" %}<ul class="hidden"></ul><a></a>{% endunless %}
 
-{% unless _menu_inside == "" %}
-  <ul id="menu">{{ _menu_inside }}</ul>
-{% endunless %}
-
-
-  
 {% assign _retval = _pass_active %}
 {% assign _tmp = _pass_stash | split: "" | last %}
-
-{% if _tmp == "1" %}
-  {% assign _pass_active = true %}
-{% else %}
-  {% assign _pass_active = false %}
-{% endif %}
+{% if _tmp == "1" %}{% assign _pass_active = true %}{% else %}{% assign _pass_active = false %}{% endif %}
 
 {% assign _tmp = _pass_stash.size | minus: 1 %}
 {% assign _pass_stash = _pass_stash | truncate: _tmp, "" %}
