@@ -1,157 +1,206 @@
 <style>
-/* CSS Document */
-
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
-
-body {
-	background: #212121;
-	font-size:22px;
-	line-height: 32px;
-	color: #ffffff;
-	word-wrap:break-word !important;
-	font-family: 'Open Sans', sans-serif;
-	}
-
-h1 {
-	font-size: 60px;
-	text-align: center;
-	color: #FFF;
-}	
-
-h3 {
-	font-size: 30px;
-	text-align: center;
-	color: #FFF;
+@font-face {
+  font-family: "Icon";
+  src: url(http://www.godbolt.me/fonts/modernpics-webfont.ttf) format('truetype'), url(http://www.godbolt.me/fonts/modernpics-webfont.woff) format('woff'), url(http://www.godbolt.me/fonts/modernpics-webfont.eot) format('embedded-opentype'), url(http://www.godbolt.me/fonts/modernpics-webfont.svg) format('svg');
 }
-
-h3 a {
-	color: #FFF;
-}
-
-a {
-	color: #FFF;
-}
-
-h1 {
-	margin-top: 100px;
-	text-align:center;
-	font-size:60px;
-	font-family: 'Bree Serif', 'serif';
-	}
-
-#container {
-	margin: 0 auto;
-}
-
-p {
-	text-align: center;
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 nav {
-	margin: 50px 0;
-	background-color: #E64A19;
-}
-
-nav ul {
-	padding: 0;
   margin: 0;
-	list-style: none;
-	position: relative;
-	}
-	
-nav ul li {
-	display:inline-block;
-	background-color: #E64A19;
-	}
-
-nav a {
-	display:block;
-	padding:0 10px;	
-	color:#FFF;
-	font-size:20px;
-	line-height: 60px;
-	text-decoration:none;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  position: relative;
+  list-style: none;
+}
+@media all and (max-width: 700px) {
+  nav li {
+    margin-bottom: 2px;
+  }
+}
+@media all and (min-width: 701px) {
+  nav li {
+    float: left;
+    width: 33.333333%;
+    text-align: center;
+  }
+  nav li:last-child a {
+    border: none;
+  }
+  nav li:hover li {
+    height: 40px;
+  }
+}
+nav li a {
+  background: #777;
+  padding: 10px;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+nav li a:hover {
+  background: #666;
+}
+@media all and (min-width: 701px) {
+  nav li a {
+    border-right: 1px solid #555;
+  }
+}
+nav li a.more, nav li a.less {
+  display: none;
+  font-family: icon;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #999;
+  padding: 0;
+  width: 25%;
+  text-align: center;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  z-index: 500;
+  font-size: 30px;
+  -moz-box-shadow: -3px 0px 2px -2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -3px 0px 2px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: -3px 0px 2px -2px rgba(0, 0, 0, 0.1);
+}
+.touch nav li a.more, .touch nav li a.less {
+  display: block;
+}
+@media all and (max-width: 700px) {
+  nav li a.more, nav li a.less {
+    display: block;
+  }
+}
+nav li a.more:hover, nav li a.less:hover {
+  background: #888;
+}
+nav li ul {
+  padding: 0;
+}
+@media all and (min-width: 701px) {
+  nav li ul {
+    width: 100%;
+    position: absolute;
+  }
+}
+nav li ul li {
+  height: 0px;
+  -moz-transition-property: height;
+  -o-transition-property: height;
+  -webkit-transition-property: height;
+  transition-property: height;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+@media all and (min-width: 701px) {
+  nav li ul li {
+    width: auto;
+    float: none;
+    border: none;
+    margin-left: -1px;
+  }
+}
+nav li ul a {
+  background: #999;
+  line-height: 21px;
+  border: none;
+}
+@media all and (max-width: 700px) {
+  nav li ul a {
+    padding-left: 20px;
+  }
+}
+nav li ul a:hover {
+  background: #888;
 }
 
-nav a:hover { 
-	background-color: #000000; 
+nav li:target ul li {
+  height: 40px;
+}
+@media all and (max-width: 700px) {
+  nav li:target ul li {
+    border-top: 1px solid #c8c8c8;
+  }
+}
+nav li:target ul li:first-child {
+  border-top: none;
 }
 
-/* Hide Dropdowns by Default */
-nav ul ul {
-	display: none;
-	position: absolute; 
-	top: 60px; /* the height of the main nav */
+nav li:target .less {
+  z-index: 1000;
 }
-	
-/* Display Dropdowns on Hover */
-nav ul li:hover > ul {
-	display:inherit;
-}
-	
-/* Fisrt Tier Dropdown */
-nav ul ul li {
-	width:170px;
-	float:none;
-	display:list-item;
-	position: relative;
-}
-
-/* Second, Third and more Tiers	*/
-nav ul ul ul li {
-	position: relative;
-	top:-60px; 
-	left:170px;
-}
-
-	
-/* Change this in order to change the Dropdown symbol */
-li > a:after { content:  ' +'; }
-li > a:only-child:after { content: ''; }
 
 </style>
-<div id="container">
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">WordPress</a>
-            <!-- First Tier Drop Down -->
-            <ul>
-                <li><a href="#">Themes</a></li>
-                <li><a href="#">Plugins</a></li>
-                <li><a href="#">Tutorials</a></li>
-            </ul>        
-            </li>
-            <li><a href="#">Web Design</a>
-            <!-- First Tier Drop Down -->
-            <ul>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Links</a></li>
-                <li><a href="#">Tutorials</a>
-            	<!-- Second Tier Drop Down -->
-                <ul>
-                    <li><a href="#">HTML/CSS</a></li>
-                    <li><a href="#">jQuery</a></li>
-                    <li><a href="#">Other</a>
-                        <!-- Third Tier Drop Down -->
-                        <ul>
-                            <li><a href="#">Stuff</a></li>
-                            <li><a href="#">Things</a></li>
-                            <li><a href="#">Other Stuff</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                </li>
-            </ul>
-            </li>
-            <li><a href="#">Graphic Design</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-  <h1>Pure CSS Drop Down Menu</h1>
-<p> A simple dropdown navigation menu made with CSS Only. Dropdowns are marked with a plus sign ( + )</p>
-<p>Read tutorial <a target="_blank" href="http://webdesignerhut.com/css-dropdown-menu/">here</a></p>
-</div>
+<nav id="mainnav">
+  		<ul>
+			<li id="personal">
+			<a title="click to close" class="less" href="#">X</a>
+			<a title="click to open" class="more" href="#personal">Z</a>
+			<a target="_blank" href="http://www.google.com">Personal</a>
+			
+				<ul>
+				<li><a href="#">Checking</a></li>
+				<li><a href="#">Loans</a></li>
+				<li><a href="#">Services</a></li>
+				</ul>	
+			</li>
+			<li id="business">
+			<a title="click to close" class="less" href="#">X</a>
+			<a title="click to open" class="more" href="#business">Z</a>
+				  
+			<a target="_blank" href="http://www.google.com">Business</a>
+				<ul>
+				<li><a href="#">Checking</a></li>
+				<li><a href="#">Loans</a></li>
+				<li><a href="#">Services</a></li>
+				</ul>	
+	
+			</li>
+			<li id="aboutus">
+			<a title="click to close" class="less" href="#">X</a>
+			<a title="click to open" class="more" href="#aboutus">Z</a>
+
+			<a target="_blank" href="http://www.google.com">About Us</a>
+				<ul>
+				<li><a href="#">Checking</a></li>
+				<li><a href="#">Loans</a></li>
+				<li><a href="#">Services</a></li>
+				</ul>	
+	
+			</li>
+			</ul>
+		</nav>
+
+
+
+<div class="container">	
+		<section class="pattern-description">
+			<h1>Touch Friendly, CSS only Responsive Menu</h1>
+			<p>This approach provides a touch friendly responsive menu without needing to rely on javascript for exposing secondary navigation on mobile devices.</p>
+			<h3>Pros</h3>
+			<ul>
+			<li><strong>No Mo' JS</strong> - Does not rely on javascript or jQuery</li>
+			<li><strong>Isolated Behaviors</strong> - Media queries isolate the two different opening behaviors</li>
+			<li><strong>Sexy Animations</strong> - CSS animations work regardless of the number of list items</li>
+			<li><strong>Lean</strong> - Use of icon font means less http requests</li>
+			</ul>
+			<h3>Cons</h3>
+      <ul>
+      <li><strong>:Target jumpiness</strong> - The :target pseudo selector will "jump" down to the targeted element, which might not be the desired effect</li>
+      <li><strong>Not 100% tested</strong> - Needs to be tested on more devices including feature phones</li>
+      <li><strong>Not 100% finished</strong> - Tertiary navigation solution for mobile not explored yet</li>
+			</ul>
+			<p>I hope to put this design into production on a future project, so any feedback is appreciated. Feel free to contact me on twitter @<a target="_blank" href="https://twitter.com/micahgodbolt">micahgodbolt</a>
+      </section>
+ </div> 	
