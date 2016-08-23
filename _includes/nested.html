@@ -8,12 +8,6 @@ Directory
 Extention
 Depth
 
-  
-{% assign path = page.path | split:'/' %}
-{% for folder in path %}
-<p>{{ folder }}</p>
-{% endfor %}
-
 <ul>
 {% for page in site.pages %}
 {% if page.url != '/' %} 
