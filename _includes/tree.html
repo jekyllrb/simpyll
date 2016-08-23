@@ -162,7 +162,7 @@ input[type=checkbox]:checked ~ #menu{
 
     {% unless node.url == "/" %}
       {% capture _childmenu %}
-        {% include automenu url=_nexturl sort=include.sort reverse=include.reverse all=include.all %}
+        {% include tree.html url=_nexturl sort=include.sort reverse=include.reverse all=include.all %}
       {% endcapture %}
     {% endunless %}
 
