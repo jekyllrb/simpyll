@@ -166,8 +166,9 @@ input[type=checkbox]:checked ~ #menu{
       {% endcapture %}
     {% endunless %}
 
-    <li><a href="{{ node.url }}">{{ node.title | escape }}</a>
+    <li><a></a>
     <ul class="hidden">
+    	<li><a href="{{ node.url }}">{{ node.title | escape }}</a></li>
       {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
       {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
     </li>
