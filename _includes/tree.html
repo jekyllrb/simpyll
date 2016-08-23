@@ -167,8 +167,12 @@ input[type=checkbox]:checked ~ #menu{
     {% endunless %}
 
     
-    <ul class="hidden">
-    	<li><a href="{{ node.url }}">{{ node.title | escape }}</a></li>
+    {% if _menu_inside == "" %}
+    <ul id="menu">{{ _menu_inside }}</ul><a href="/">Home</a>
+    {% else %}
+    <ul class="hidden"></ul><a></a>
+    {% endif %}
+    <li><a href="{{ node.url }}">{{ node.title | escape }}</a></li>
       {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
       {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
     </li>
@@ -186,9 +190,7 @@ input[type=checkbox]:checked ~ #menu{
   <ul id="menu">{{ _menu_inside }}</ul>
 {% endunless %}
 
-{% if _menu_inside == "" %}
-  <ul id="menu">{{ _menu_inside }}</ul><a href="/">Home</a>
-{% endif %}
+
   
 {% assign _retval = _pass_active %}
 {% assign _tmp = _pass_stash | split: "" | last %}
