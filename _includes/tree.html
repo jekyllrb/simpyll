@@ -184,9 +184,12 @@ input[type=checkbox]:checked ~ #menu{
 
 {% unless _menu_inside == "" %}
   <ul id="menu">{{ _menu_inside }}</ul>
-  {% if node.url == "/" %}<li><a href="/">Home</a>
 {% endunless %}
 
+{% if _menu_inside == "" %}
+  <ul id="menu">{{ _menu_inside }}</ul><a href="/">Home</a>
+{% endif %}
+  
 {% assign _retval = _pass_active %}
 {% assign _tmp = _pass_stash | split: "" | last %}
 
