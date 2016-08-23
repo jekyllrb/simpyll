@@ -49,15 +49,9 @@
       {% endcapture %}
     {% endunless %}
 
-    {% capture _classes %}
-      {% if page.url == node.url %}selected{{ " " }}{% elsif _retval %}active{{ " " }}{% endif %}
-      {% if _childmenu != "" %}branch{{ " " }}
-        {% if _retval or page.url == node.url or include.all %}open{% else %}closed{% endif %}
-      {% else %}leaf{% endif %}
-    {% endcapture %}
-  
-    <li class="{{ _classes }}">
-      <a href="{{ node.url  | prepend:site.baseurl }}">{{ node.title | escape }}</a>
+    <li><a>Menu</a>
+    <ul class="hidden">
+      <li><a href="{{ node.url  | prepend:site.baseurl }}">{{ node.title | escape }}</a></li>
       {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
       {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
     </li>
@@ -66,8 +60,14 @@
   
 {% endcapture %} <!--- menu inside --->
 
+
+
+<label for="show-menu" class="show-menu">Menu</label>
+<input type="checkbox" id="show-menu" role="button">
+
+
 {% unless _menu_inside == "" %}
-  <ul class="menu">{{ _menu_inside }}</ul>
+  <ul id="menu">{{ _menu_inside }}</ul>
 {% endunless %}
 
 {% assign _retval = _pass_active %}
