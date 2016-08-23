@@ -1,6 +1,4 @@
 ---
 title: home
-layout: right
+layout: default
 ---
-
-{% include breadcrumb/subdirs.html %}
