@@ -1,1 +1,20 @@
 {{ page.url }}
+
+Variables
+
+Root
+File
+Directory
+Extention
+Depth
+
+  {% capture directory %}
+      {% assign path = page.path | remove_first:'/' | split:'/' %}
+      {% for folder in path %}
+          {% unless forloop.last %}
+              {{ folder }}/
+          {% endunless %}
+      {% endfor %}
+  {% endcapture %}
+
+  Directory: {{directory}}
