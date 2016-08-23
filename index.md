@@ -158,10 +158,10 @@ if node_url_base == page_url %}<li><a href="{{node.url}}">{{node.title}}</a></li
 endfor %}
 </ul>
 
-</li>
+
 {% endfor %}
 
-
+</li>
 </ul>
 </body>
 </html>
