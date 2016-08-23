@@ -218,8 +218,8 @@ padding-left: 0.5em;
 
 .icon-edit-tip {
     left: 0px;
-    height: 13px;
-    width: 13px;
+    height: 6.5px;
+    width: 6.5px;
     top: 13px;
     background: #4B5;
     transform: skew(-10deg, -10deg);
@@ -227,31 +227,27 @@ padding-left: 0.5em;
 }
 
 .icon-edit-shaft {
-    border-left: .5em solid #fff;
-    background: #4B5;
-    transform: rotate(-45deg);
-    margin-right: 0px;
-    position: relative;
-    height: 15px;
-    width: 37px;
-    bottom: 14px;
-    border-left-width: 3px;
-    left: 1px;
+  border-left: .25em solid #fff;
+  background: #4B5;
+  transform: rotate(-45deg);
+  margin-right: 0px;
+  position: relative;
+  height: 7.5px;
+  width: 16.5px;
+  border-left-width: 1.5px;
+  left: 1px;
 }
 
 .icon-edit {
-  display: flex;
-}
-
-.icon-edit > a {
-    width: 1em;
+    display: flex;
     height: 1em;
-    position: relative;
-    margin: 0.5em 1em 0.5em 0.5em;
+    width: 100%;
+    margin: 0.5em;
+    height: 1em;
 }
 
 .breadcrumbs {
-width: 95%;
-    margin: 0.5em;
-    height: 1em;
+  width: 95%;
+  margin: 0.5em;
+  height: 1em;
 }
