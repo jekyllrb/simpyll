@@ -8,24 +8,15 @@ Directory
 Extention
 Depth
 
-  {% capture directory %}
-      {% assign path = page.path | split:'/' %}
-      {% for folder in path %}
-         
-              {{ folder }}/
-          
-      {% endfor %}
-  {% endcapture %}
+  
+{% assign path = page.path | split:'/' %}
+{% for folder in path %}
+<p>{{ folder }}</p>
+{% endfor %}
 
-  Directory: {{directory}}
-
-Getting started pages:
 <ul>
 {% assign sorted_pages = (site.pages | sort: 'url') %}
 {% for page in sorted_pages %}
-
 <li>{{ page.url | remove: "/" }}</li>
-
-
 {% endfor %}
 </ul>
