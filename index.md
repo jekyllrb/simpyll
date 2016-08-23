@@ -5,11 +5,9 @@
 	<meta charset="UTF-8">
 	<title>CSS Only Navigation Menu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+/*Strip the ul of padding and list styling*/
 
-<!---
-	<style>/*Strip the ul of padding and list styling*/
-
-/*
 ul {
 	list-style-type:none;
 	margin:0;
@@ -123,9 +121,9 @@ input[type=checkbox]:checked ~ #menu{
 		display:block;
 	}
 }
-"\
+
 </style>
---->
+
 </head>
 
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
@@ -154,14 +152,6 @@ input[type=checkbox]:checked ~ #menu{
 </ul>
 
 {% include automenu url='/' sort="url" reverse=false all=true %}
-
-{% include automenu url='/' sort="url" reverse=false %}
-
-{% include automenu url='/' sort="url"%}
-
-{% include automenu url='/' %}
-
-{% include automenu all=true %}
 
 </body>
 </html>
