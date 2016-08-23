@@ -21,12 +21,11 @@ Depth
 
 Getting started pages:
 <ul>
-{% assign sorted_pages = (site.pages | sort: 'title') %}
+{% assign sorted_pages = (site.pages | sort: 'url') %}
 {% for page in sorted_pages %}
-{% for tag in page.tags %}
-{% if tag == "getting_started" %}
+
 <li><a href="{{ page.url | remove: "/" }}">{{page.title}}</a></li>
-{% endif %}
-{% endfor %}
+
+
 {% endfor %}
 </ul>
