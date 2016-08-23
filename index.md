@@ -161,7 +161,7 @@ input[type=checkbox]:checked ~ #menu{
 
 {% include automenu url='/' %}
 
-{% include automenu %}
+{% include automenu all=true %}
 
 </body>
 </html>
