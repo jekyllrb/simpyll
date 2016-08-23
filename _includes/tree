@@ -57,7 +57,7 @@
     {% endcapture %}
   
     <li class="{{ _classes }}">
-      <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title | escape }}</a>
+      <a href="{{ node.url  | prepend:site.baseurl }}">{{ node.title | escape }}</a>
       {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
       {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
     </li>
