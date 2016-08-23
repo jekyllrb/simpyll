@@ -17,6 +17,6 @@ Depth
 <ul>
 {% assign sorted_pages = (site.pages | sort: 'url') %}
 {% for page in sorted_pages %}
-<li>{{ page.url | remove: "/" }}</li>
+<li>{{ page.url | split: "/" | size }}</li>
 {% endfor %}
 </ul>
