@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<title>CSS Only Navigation Menu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!---
 	<style>/*Strip the ul of padding and list styling*/
 
 /*
@@ -123,7 +125,7 @@ input[type=checkbox]:checked ~ #menu{
 }
 "\
 </style>
-
+--->
 </head>
 
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
