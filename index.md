@@ -3,4 +3,4 @@ title: home
 layout: right
 ---
 
-{% include dm.html %}
+{% include dm.html root="/" %}
