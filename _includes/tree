@@ -7,7 +7,15 @@
 
 {% capture _menu_inside %}
 
-  {% assign _pages = site.pages | sort: include.sort | reverse %}
+  {% assign _pages = site.pages %}
+{% if include.sort %}
+{% assign _pages = _pages | sort: include.sort %}
+{% else %}
+{% assign _pages = _pages | sort: "url" %}
+{% endif %}
+{% if include.reverse %}
+{% assign _pages = _pages | reverse %}
+{% endif %}
   
   {% for node in _pages %}
     {% unless node.title %}{% continue %}{% endunless %}
