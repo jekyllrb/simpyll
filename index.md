@@ -14,9 +14,9 @@ Depth
 
 <ul>
 {% for page in site.pages %}
-{% if page.url != '/' %} 
-<li>pathitems: {{ page.url | split: "/" | sort }} </li>
-depth: {{ page.url | split: "/" | size | minus: 1 | sort }}
+{% if page != '/' %} 
+<li>pathitems: {{ page.url | split: "/" | sort }} 
+depth: {{ page.url | split: "/" | size | minus: 1 | sort }}</li>
 {% endif %}
 {% endfor %}
 </ul>
