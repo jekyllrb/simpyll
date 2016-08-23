@@ -118,7 +118,10 @@ input[type=checkbox]:checked ~ #menu{
 	.show-menu {
 		display:block;
 	}
-}</style>
+}
+
+</style>
+
 </head>
 
 
@@ -128,7 +131,7 @@ input[type=checkbox]:checked ~ #menu{
 <input type="checkbox" id="show-menu" role="button">
 
 <ul id="menu">
-{{ page.url }}
+
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
 <li>{%
