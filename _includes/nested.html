@@ -11,9 +11,9 @@ Depth
   {% capture directory %}
       {% assign path = page.path | split:'/' %}
       {% for folder in path %}
-          {% unless forloop.last %}
+         
               {{ folder }}/
-          {% endunless %}
+          
       {% endfor %}
   {% endcapture %}
 
