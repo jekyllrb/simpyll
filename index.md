@@ -2,6 +2,8 @@
 layout: simp
 ---
 
+<!---
+
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
 <label for="show-menu" class="show-menu">Menu</label>
@@ -24,3 +26,5 @@ layout: simp
 </ul>
 </li>
 </ul>
+
+--->
