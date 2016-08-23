@@ -147,7 +147,7 @@ capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}{%
 for node in site.pages %}{%
 assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}{% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}{% 
 capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}{% 
-if node_url_base == page_url %}<li><ahref="{{node.url}}">{{node.title}}</a></li>{% endif %}{%
+if node_url_base == page_url %}<li><a href="{{node.url}}">{{node.title}}</a></li>{% endif %}{%
 endfor %}
 </ul>
 </ul>
