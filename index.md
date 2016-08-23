@@ -134,12 +134,10 @@ input[type=checkbox]:checked ~ #menu{
 
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
-<li>{%
-for crumb in crumbs offset: 1 %}{%
-if forloop.last %}<a>{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>{% 
-else %}<a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>{% 
-endif %}{%
-endfor %}
+<li>
+{% for crumb in crumbs offset: 1 %}
+<a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+{% endfor %}
 
 <ul class="hidden">{% 
 assign page_url = page.url %}{% 
@@ -153,6 +151,7 @@ capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %
 if node_url_base == page_url %}<li><a href="{{node.url}}">{{node.title}}</a></li>{% endif %}{%
 endfor %}
 </ul>
+</li>
 </ul>
 </body>
 </html>
