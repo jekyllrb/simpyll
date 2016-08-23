@@ -132,8 +132,6 @@ input[type=checkbox]:checked ~ #menu{
 {% for crumb in crumbs offset: 1 %}
 
 {% if forloop.last %}
-<a>{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
-{% else %}
 <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
 {% endif %}
   
