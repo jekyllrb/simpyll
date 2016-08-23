@@ -1,11 +1,8 @@
----
-title: home
----
-
-
-<style>
-	
-	/*Strip the ul of padding and list styling*/
+<html lang="en"><head>
+	<meta charset="UTF-8">
+	<title>CSS Only Navigation Menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>/*Strip the ul of padding and list styling*/
 ul {
 	list-style-type:none;
 	margin:0;
@@ -97,6 +94,7 @@ input[type=checkbox]:checked ~ #menu{
     display: block;
 }
 
+
 /*Responsive Styles*/
 
 @media screen and (max-width : 760px){
@@ -117,36 +115,37 @@ input[type=checkbox]:checked ~ #menu{
 	.show-menu {
 		display:block;
 	}
-}
+}</style>
+</head>
 
-	
-</style>
 
+<body>
 <label for="show-menu" class="show-menu">Show Menu</label>
-
 <input type="checkbox" id="show-menu" role="button">
-
-{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-
 <ul id="menu">
-  <li><a href="/">Home</a></li>
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+<li><a href="/">Home</a></li>
+<li>
 {% for crumb in crumbs offset: 1 %}
-
 {% if forloop.last %}
+<a>{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+{% else %}
 <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
 {% endif %}
-  
+{% endfor %}
+<ul class="hidden">
 {% assign page_url = page.url %}
 {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
 {% capture url_parts_size %}{{ url_parts | size }}{% endcapture %}
 {% capture rm %}{{ url_parts | last | append: '/' }}{% endcapture %}
 {% capture base_url %}{{ page.url | replace: rm, '' }}{% endcapture %}
-{% for node in site.pages %}{% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
+{% for node in site.pages %}
+{% assign node_url_parts = node.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
 {% capture node_url_rm %}{{ node.url | split: '/' | last | append: '/' }}{% endcapture %}
 {% capture node_url_base %}{{ node.url | replace: node_url_rm, '' }}{% endcapture %}
-{% if node_url_base == page_url %}
-<li><a href="{{node.url}}">{{node.title}}</a></li>
-{% endif %}
-{% endfor %}
+{% if node_url_base == page_url %}<li><ahref="{{node.url}}">{{node.title}}</a></li>{% endif %}
 {% endfor %}
 </ul>
+</ul>
+</body>
+</html>
