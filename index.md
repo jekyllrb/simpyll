@@ -123,12 +123,13 @@ input[type=checkbox]:checked ~ #menu{
 
 
 <body>
+
 <label for="show-menu" class="show-menu">Show Menu</label>
 <input type="checkbox" id="show-menu" role="button">
 
-<ul id="menu">{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-
-<li><a href="/">Home</a></li>
+<ul id="menu">
+{{ page.url }}
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
 <li>{%
 for crumb in crumbs offset: 1 %}{%
