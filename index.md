@@ -132,9 +132,7 @@ input[type=checkbox]:checked ~ #menu{
 <input type="checkbox" id="show-menu" role="button">
 
 <ul id="menu">
-<li><a href="/">Home</a></li>
-<li>
-<a href="#">About ￬</a>
+<li><a href="/">Home</a>
 <ul class="hidden">
 {% assign page_url = page.url %}
 {% assign url_parts = page.url | replace: '/','-' | append: '@' | remove: '-@' | replace: '-','/' | split: '/' %}
