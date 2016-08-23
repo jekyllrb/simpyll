@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>{% include head.html %}</head>
+    <body>
+      <nav id="menu" class="menu">{% include search.html %}</nav>
+      <div id="panel" class="panel">
+        <header class="panel-header">
+          <button class="icon-hamburger js-slideout-toggle"></button>
+          <h1 class="site-title">{{ site.title }}</h1>
+        </header>
+        <section class="content-box">
+          <div class="content-box-header">
+            <div class="breadcrumbs">{% include crumbs.html %}</div>
+            <div class="icon-edit"><a href="https://github.com/{{ site.github }}/{{ site.repository }}/edit/{{ site.branch }}/{{ page.path }}"><div class="icon-edit-tip"></div>
+<div class="icon-edit-shaft"></div></a></div>
+          </div>
+          <div class="article">{{ content }}</div>
+        </section>
+        <footer class="panel-footer"></footer>
+      </div>
+      {% include scripts.html %}
+  </body>
+</html>
