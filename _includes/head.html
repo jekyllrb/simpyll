@@ -5,5 +5,13 @@
 <meta name="HandheldFriendly" content="True">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+{% if page.description %}<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">{% endif %}
+{% if page.tags %}<meta name="keywords" content="{{ page.tags }}">{% if page.tags == true or page.title == 'tags' %}<link rel="stylesheet" href="{{ 'assets/css/tags.css' | prepend:site.baseurl }}">{% endif %}{% endif %}
+{% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
+
 <link rel="stylesheet" href="{{ 'assets/style.css' | prepend:site.baseurl }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' }}">
+
 <title>{{ site.title | capitalize }}{% if page.title %}{% if page.url != '/' %} - {{ page.title | capitalize }}{% endif %}{% endif %}</title>
+
+{% if site.analytics %}{% include analytics.html %}{% endif %}
