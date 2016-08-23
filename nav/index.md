@@ -124,27 +124,6 @@ input[type=checkbox]:checked ~ #menu{
 
 <input type="checkbox" id="show-menu" role="button">
 
-<ul id="menu">
-  <li><a href="#">Home</a></li>
-  <li>
-    <a href="#">About &#65516;</a>	
-    <ul class="hidden">
-	<li><a href="#">Who We Are</a></li>
-	<li><a href="#">What We Do</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#">Portfolio &#65516;</a>
-    <ul class="hidden">
-      <li><a href="#">Photography</a></li>
-      <li><a href="#">Web &amp; User Interface Design</a></li>
-      <li><a href="#">Illustration</a></li>
-    </ul>
-  </li>
-  <li><a href="#">News</a></li>
-  <li><a href="#">Contact</a></li>
-  </ul>
-
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
 
 <ul id="menu">
@@ -165,3 +144,4 @@ endcapture %}{% if node_url_base == page_url %}
 {% endif %}{% endfor %}
   
 {% endfor %}
+</ul>
