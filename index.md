@@ -6,6 +6,8 @@
 	<title>CSS Only Navigation Menu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>/*Strip the ul of padding and list styling*/
+
+/*
 ul {
 	list-style-type:none;
 	margin:0;
@@ -119,7 +121,7 @@ input[type=checkbox]:checked ~ #menu{
 		display:block;
 	}
 }
-
+"\
 </style>
 
 </head>
