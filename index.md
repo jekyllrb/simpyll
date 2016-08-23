@@ -151,7 +151,7 @@ input[type=checkbox]:checked ~ #menu{
 </li>
 </ul>
 
-{% include automenu url='/' sort="url" reverse=false all=false %}
+{% include automenu url='/' sort="url" reverse=false all=true %}
 
 
 </body>
