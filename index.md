@@ -1,13 +1,11 @@
 ---
 ---
 
-{{ page.url }}
+{{ page.url }} yi
 
-  {% for page in site.pages %}
-
-    {{site.url }}{{ page.url | remove: "index.html" }}
-  
-  {% endfor %}
+{% for page in site.pages %}
+{{site.url }}{{ page.url | remove: "index.html" }}
+{% endfor %}
 
 Variables
 
