@@ -99,9 +99,12 @@ ul.menut li {
     </style>
     
   </head>
+  
   <body>
     <header>
-      <a href="{{ site.baseurl }}">Home</a>
+      <main class='container'>
+  <ul class='menut funon'>
+    <li><a class='p1' href="{{ site.baseurl }}">Home &#x25BC;</a>
       {% include automenu url='/' sort="url" reverse=false all=true %}
     </header>
     <footer>
