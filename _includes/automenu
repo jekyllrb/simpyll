@@ -53,7 +53,7 @@
 {% if _retval or page.url == node.url or include.all %}open{% else %}closed{% endif %}
 {% else %}leaf{% endif %}{% endcapture %}
 
-<li class="{{ _classes }}"><a href="{{ node.url }}">{{ node.title | escape }}</a>
+<li style="list-style-type:none;" class="{{ _classes }}"><span class="icon-arrow" aria-hidden="true">&rsaquo;</span><a style="text-decoration:none;" href="{{ node.url }}">{{ node.title | escape }}</a>
 {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
 {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}</li>
 
