@@ -12,5 +12,5 @@ layout: default
 | 8/1/16  | 13          |              |              | 25               |
 | 8/8/16  |             | 25           | 25           |                  |
 | 8/16/16 |             |              |              |    25            |
-
+8/20/16 40lbs pine sawdust total and 3.2lbs 46% nitrogen
 * OM in lbs/k
