@@ -1,3 +1,5 @@
+<a href="/">Home</a>
+
 {% capture _pass_stash %}
 {{ _pass_stash }}
 {% if _pass_active %}1{% else %}0{% endif %}
