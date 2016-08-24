@@ -44,20 +44,19 @@
 {% include automenu url=_nexturl sort=include.sort reverse=include.reverse all=include.all %}
 {% endcapture %}
 {% endunless %}
+
 {% capture _classes %}
-{% if page.url == node.url %}selected{{ " " }}
+{% if page.url == node.url | prepend:site.baseurl %}selected{{ " " }}
 {% elsif _retval %}active{{ " " }}
 {% endif %}
 {% if _childmenu != "" %}branch{{ " " }}
 {% if _retval or page.url == node.url or include.all %}open{% else %}closed{% endif %}
-{% else %}leaf{% endif %}
-{% endcapture %}
-<li class="{{ _classes }}">
-<a href="{{ site.baseurl }}{{ node.url }}">{{ node.title | escape }}</a>
+{% else %}leaf{% endif %}{% endcapture %}
+
+<li class="{{ _classes }}"><a href="{{ node.url | prepend:site.baseurl }}">{{ node.title | escape }}</a>
 {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
-{% if _retval or page.url == node.url %}
-{% assign _pass_active = true %}
-{% endif %}</li>
+{% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}</li>
+
 {% endfor %}
 {% endcapture %}
 {% unless _menu_inside == "" %}<ul class="menu">{{ _menu_inside }}</ul>
