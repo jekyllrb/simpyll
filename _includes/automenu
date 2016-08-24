@@ -1,4 +1,3 @@
-<a href="/">Home</a>
 
 {% capture _pass_stash %}
 {{ _pass_stash }}
