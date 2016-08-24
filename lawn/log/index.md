@@ -13,4 +13,5 @@ layout: default
 | 8/8/16  |             | 25           | 25           |                  |
 | 8/16/16 |             |              |              |    25            |
 8/20/16 40lbs pine sawdust total and 3.2lbs 46% nitrogen
+8/24/16 10lbs ironite 36lbs milo 50lbs soy bean meal
 * OM in lbs/k
