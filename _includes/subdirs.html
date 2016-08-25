@@ -3,8 +3,11 @@
 {% assign current = urlparts | last %}{{ current }}
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %}{{parent}}
 
+<br>
+
 {% for node in site.pages %}
   {% if node.url contains parent %}
+  <br>
     {% assign node_urlparts = node.url | split: '/' %}{{ node_urlparts }}
     {% assign node_depth = node_urlparts | size | minus: 1 %}{{ node_depth }}
     {% assign node_current = node_urlparts | last %}{{ node_current }}
