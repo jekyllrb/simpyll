@@ -1,14 +1,14 @@
 {% assign urlparts = page.url | split: '/' %}{{ urlparts }}
 {% assign depth = urlparts | size %}{{ depth }}
 {% assign current = urlparts | last %}{{ current }}
-{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %}
+{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %}{{parent}}
 
 {% for node in site.pages %}
   {% if node.url contains parent %}
     {% assign node_urlparts = node.url | split: '/' %}
     {% assign node_depth = node_urlparts | size | minus: 1 %}
     {% assign filename = node_urlparts | last %}
-    {% if depth == node_depth and parent == filename %}
+    {% if depth == node_depth %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
   {% endif %}
