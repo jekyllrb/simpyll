@@ -8,7 +8,7 @@
     {% assign node_urlparts = node.url | split: '/' %}
     {% assign node_depth = node_urlparts | size | minus: 1 %}
     {% assign filename = node_urlparts | last %}
-    {% if depth == node_depth and parent == current %}
+    {% if depth == node_depth and parent == filename %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
   {% endif %}
