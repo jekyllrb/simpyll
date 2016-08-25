@@ -5,9 +5,10 @@
 
 {% for node in site.pages %}
   {% if node.url contains parent %}
-    {% assign node_urlparts = node.url | split: '/' %}
-    {% assign node_depth = node_urlparts | size | minus: 1 %}
-    {% assign filename = node_urlparts | last %}
+    {% assign node_urlparts = node.url | split: '/' %}{{ node_urlparts }}
+    {% assign node_depth = node_urlparts | size | minus: 1 %}{{ node_depth }}
+    {% assign node_current = node_urlparts | last %}{{ node_current }}
+    {% capture node_parent %}{% for part in node_urlparts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}{{ node_parent }}
     {% if depth == node_depth %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
