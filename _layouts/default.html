@@ -12,7 +12,7 @@
           <div class="content-box-header"><div class="breadcrumbs">{% include crumbs.html %}</div></div>
             {% include subdirs.html %}
           <div class="article">
-            <div>{% include automenu url="site.baseurl" sort="url" reverse=true all=true %}</div>
+            <div>{% include automenu url="{{ site.baseurl }}" sort="url" reverse=true all=true %}</div>
             {{ content }}
           </div>
         </section>
