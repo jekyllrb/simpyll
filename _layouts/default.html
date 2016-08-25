@@ -2,7 +2,10 @@
 <html lang="en">
   <head>{% include head.html %}</head>
     <body>
-      <nav id="menu" class="menu">{% include search.html %}</nav>
+      <nav id="menu" class="menu">
+        {% include search.html %}
+        {% include automenu url="/" sort="url" reverse=true all=true %}
+        </nav>
       <div id="panel" class="panel">
         <header class="panel-header">
           <button class="icon-hamburger js-slideout-toggle"></button>
@@ -11,12 +14,12 @@
         <section class="content-box">
           <div class="content-box-header">
             <div class="breadcrumbs">{% include crumbs.html %}</div>
-            <div class="icon-edit"><a href="https://github.com/{{ site.github }}/{{ site.repository }}/edit/{{ site.branch }}/{{ page.path }}"><div class="icon-edit-tip"></div>
-<div class="icon-edit-shaft"></div></a></div>
-          </div>
+            </div>
           <div class="article">{{ content }}</div>
         </section>
-        <footer class="panel-footer"></footer>
+        <footer class="panel-footer">
+          <a href="https://github.com/{{ site.github }}/{{ site.repository }}/edit/{{ site.branch }}/{{ page.path }}">Edit this page</a>
+        </footer>
       </div>
       {% include scripts.html %}
   </body>
