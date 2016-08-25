@@ -37,26 +37,21 @@
 
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+  <div id="myDropdown" class="dropdown-content {{ _classes }}">
+    <a style="text-decoration:none;" href="{{ node.url }}">{{ node.title | escape }}</a>
+    {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
+    {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
   </div>
 </div>
 
 <div class="dropdown">
   <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
+  <div class="dropdown-content {{ _classes }}">
+    <a style="text-decoration:none;" href="{{ node.url }}">{{ node.title | escape }}</a>
+    {% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
+    {% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}
   </div>
 </div>
-
-<li style="list-style-type:none;" class="{{ _classes }}">
-<a style="text-decoration:none;" href="{{ node.url }}">{{ node.title | escape }}</a>
-{% if _retval or page.url == node.url or include.all %}{{ _childmenu }}{% endif %}
-{% if _retval or page.url == node.url %}{% assign _pass_active = true %}{% endif %}</li>
 
 {% endfor %}
 {% endcapture %}
