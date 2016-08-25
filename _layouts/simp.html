@@ -3,23 +3,27 @@
   
 <head>
   
-<style>
-.dropbtn {background-color: #4CAF50;  color: white;  padding: 16px;  font-size: 16px;  border: none;  cursor: pointer;}
-.dropbtn:hover, .dropbtn:focus {background-color: #3e8e41;}
-.dropdown {position: relative;  display: inline-block;}
-.dropdown-content {display: none; position: absolute; background-color: #f9f9f9; min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);}
-.dropdown-content a {color black; padding: 12px 16px; text-decoration: none;  display: block;}
-.dropdown-content a:hover {background-color: #f1f1f1}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-.show {display:block;}
-</style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="cleartype" content="on">
+<meta name="MobileOptimized" content="320">
+<meta name="HandheldFriendly" content="True">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{% if page.description %}<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">{% endif %}
+{% if page.tags %}<meta name="keywords" content="{{ page.tags }}">{% if page.tags == true or page.title == 'tags' %}<link rel="stylesheet" href="{{ 'assets/css/tags.css' | prepend:site.baseurl }}">{% endif %}{% endif %}
+{% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
+
+<link rel="stylesheet" href="{{ 'assets/dropdown.css' | prepend:site.baseurl }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' }}">
+<title>{{ site.title | capitalize }}{% if page.title %}{% if page.url != '/' %} - {{ page.title | capitalize }}{% endif %}{% endif %}</title>
 
 </head>
 
-  <body>
-    <header></header>
-    {% include automenu url='/' sort="url" reverse=false all=true %}
-    <footer></footer>   
+<body>
+  <header></header>
+  {% include automenu url='/' sort="url" reverse=false all=true %}
+  <footer></footer>   
   </body>
 </html>
