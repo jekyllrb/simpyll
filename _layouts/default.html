@@ -4,7 +4,8 @@
     <body>
       <nav id="menu" class="menu">
         {% include search.html %}
-        <div class="menu-section">{% include automenu url="/" sort="url" reverse=true all=true %}</div>
+        <div>{% include automenu url="/" sort="url" reverse=true all=true %}</div>
+        {% include subdirs.html %}
         </nav>
       <div id="panel" class="panel">
         <header class="panel-header">
