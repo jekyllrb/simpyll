@@ -5,9 +5,6 @@ title: home
 
 
 {% include crumbs.html %}
-
-<!--
 {% include automenu url="/" sort="url" reverse=true all=true %}
-{% include crumbs.html %}
+{% include subdirs.html %}
 {% include drop.html %}
--->
