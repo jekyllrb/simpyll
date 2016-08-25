@@ -5,7 +5,7 @@
       <nav id="menu" class="menu">
         {% include search.html %}
         <div>{% include automenu url="/" sort="url" reverse=true all=true %}</div>
-        {% include subdirs.html %}
+        
         </nav>
       <div id="panel" class="panel">
         <header class="panel-header">
@@ -15,7 +15,9 @@
         <section class="content-box">
           <div class="content-box-header">
             <div class="breadcrumbs">{% include crumbs.html %}</div>
+            
             </div>
+            {% include subdirs.html %}
           <div class="article">{{ content }}</div>
         </section>
         <footer class="panel-footer">
