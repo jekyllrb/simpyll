@@ -4,11 +4,18 @@
 {% assign current = site.baseurl %}
 {% assign parent = nil %}
 {% else %}
-{% assign parts = page.url | split: '/' %} urlparts = {{ urlparts }} <br>
-{% assign level = parts | size %} level = {{ level }} <br>
-{% assign current = parts | last %} current = {{ current }} <br>
-{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} parent = {{ parent }} <br>
+{% assign parts = page.url | split: '/' %} 
+{% assign level = parts | size %} 
+{% assign current = parts | last %}
+{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} 
 {% endif %}
+
+<br>
+urlparts = {{ urlparts }} <br>
+level = {{ level }} <br>
+current = {{ current }} <br>
+parent = {{ parent }} <br>
+<br>
 
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
