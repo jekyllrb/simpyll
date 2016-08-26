@@ -1,4 +1,4 @@
-{% assign parts = page.url | prepend: site.baseurl | split: '/' %} <br> parts = {{ parts }}
+{% assign parts = page.url | split: '/' %} <br> parts = {{ parts | prepend: site.baseurl }}
 {% assign level = urlparts | size %} <br> level = {{ level }}
 
 
