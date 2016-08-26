@@ -22,13 +22,12 @@ parent = {{ parent }} <br>
 {% for node in site.pages %}
 {% if node.title != nil %}
 
-
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
-{% if subdir_level == level %}
+{% if subdir_level == node_level %}
 <br>
 <a href='{{node.url}}'>{{node.title}}</a>
 node_parts = {{ node_parts }} <br>
