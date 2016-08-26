@@ -16,7 +16,8 @@
 
 node_level = {{ node_level }}
 node.url = {{ node.url }}
-{% if site.baseurl == node.url and node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
+site.baseurl = {{ site.baseurl }}
+{% if site.baseurl %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endif %}
 {% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
 {% endfor %}
