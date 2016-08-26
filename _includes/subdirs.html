@@ -13,7 +13,7 @@
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 {% endif %}
-node_level = {{node.level}}
+{{node.level}}
 {% if site.baseurl == node.url %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 {% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
