@@ -1,4 +1,11 @@
-page.url = {{ page.url | split: '/' | prepend: site.baseurl }}
+{% assign parts = page.url | prepend: site.baseurl | split: '/' %} <br> parts = {{ parts }}
+{% assign level = urlparts | size %} <br> level = {{ level }}
+
+
+
+
+
+<!--
 
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
@@ -19,3 +26,5 @@ page.url = {{ page.url | split: '/' | prepend: site.baseurl }}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
 {% endfor %}
+
+-->
