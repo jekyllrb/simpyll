@@ -4,9 +4,6 @@
 {% assign subdir_level = level | plus:1 %}
 {% assign current = site.baseurl %}
 {% assign parent = nil %}
-
-{% if level == 1 %}<a href='{{page.url}}'>{{page.title}}</a>{% endif %}
-
 {% else %}
 {% assign parts = page.url | split: '/' %} 
 {% assign level = parts | size %} 
