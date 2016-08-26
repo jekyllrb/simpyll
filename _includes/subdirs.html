@@ -14,6 +14,7 @@
 {% if level == 1 %}<a href='{{page.url}}'>{{page.title}}</a>{% endif %} <br>
 parts = {{ parts }} <br>
 level = {{ level }} <br>
+subdir_level = {{ level | plus:1 }} <br>
 current = {{ current }} <br>
 parent = {{ parent }} <br>
 <br>
@@ -26,8 +27,6 @@ parent = {{ parent }} <br>
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
-{% if level | plus: '1' == node.level %}
-
 <br>
 <a href='{{node.url}}'>{{node.title}}</a>
 node_parts = {{ node_parts }} <br>
@@ -36,6 +35,5 @@ node_current = {{ node_current }} <br>
 node_parent = {{ node_parent }} <br>
 <br>
 
-{% endif %}
 {% endif %}
 {% endfor %}
