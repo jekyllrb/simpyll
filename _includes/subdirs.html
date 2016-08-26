@@ -8,8 +8,6 @@ current = {{ current }} <br>
 parent = {{ parent }} <br>
 
 {% for node in site.pages %}
-<br><br>
-  {% if node.url contains parent %}
     {% assign node_urlparts = node.url | split: '/' %}
     node_urlparts = {{ node_urlparts }} <br>
     {% assign node_depth = node_urlparts | size | minus: 1 %}
@@ -21,8 +19,4 @@ parent = {{ parent }} <br>
     {% if depth == node_depth and current == node_parent %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
-    {% if node.title == home and node_depth == 1 %}
-          <a href='{{node.url}}'>{{node.title}}</a>
-    {% endif %}
-  {% endif %}
 {% endfor %}
