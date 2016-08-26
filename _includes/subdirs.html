@@ -1,14 +1,14 @@
 {% if page.url == site.url or page.url == site.baseurl %}
 {% assign parts = site.baseurl %}
 {% assign level = 1 %}
-{% assign current = site.baseurl
+{% assign current = site.baseurl %}
 {% assign parent = nil %}
+{% else %}
+{% assign parts = page.url | split: '/' %} urlparts = {{ urlparts }} <br>
+{% assign level = parts | size %} level = {{ level }} <br>
+{% assign current = parts | last %} current = {{ current }} <br>
+{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} parent = {{ parent }} <br>
 {% endif %}
-
-parts = {{ parts }}
-level = {{ level }}
-current = {{ current }}
-parent = {{ parent }}
 
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
