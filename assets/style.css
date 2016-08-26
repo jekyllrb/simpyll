@@ -208,7 +208,7 @@ button:focus {
 }
 
 
-.dropbtn {background-color: transparent;}
+.dropbtn {background-color:transparent;font-size: 1em;vertical-align: text-top;font-weight: 500;}
 .dropbtn:hover, .dropbtn:focus {background-color: transparent;}
 .dropdown {position: relative;  display: inline-block;}
 .dropdown-content {display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
