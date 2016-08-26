@@ -4,6 +4,9 @@
 {% assign subdir_level = level | plus:1 %}
 {% assign current = site.baseurl %}
 {% assign parent = nil %}
+
+{% if level == 2 %}<a href='{{page.url}}'>{{page.title}}</a>{% endif %}
+
 {% else %}
 {% assign parts = page.url | split: '/' %} 
 {% assign level = parts | size %} 
@@ -12,33 +15,15 @@
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} 
 {% endif %}
 
-<br>
-{% if level == 1 %}<a href='{{page.url}}'>{{page.title}}</a>{% endif %} <br>
-parts = {{ parts }} <br>
-level = {{ level }} <br>
-subdir_level = {{ subdir_level }} <br>
-current = {{ current }} <br>
-parent = {{ parent }} <br>
-<br>
- 
 {% for node in site.pages %}
 {% if node.title != nil %}
-
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
 {% assign node_subdir_level = node_level | plus:1 %}
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
-
-<br>
 {% if node_level == subdir_level and current == node_parent %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
-node_parts = {{ node_parts }} <br>
-node_level = {{ node_level }} <br> 
-node_subdir_level = {{ node_subdir_level }} <br> 
-node_current = {{ node_current }} <br>
-node_parent = {{ node_parent }} <br>
-<br>
 
 {% endif %}
 {% endfor %}
