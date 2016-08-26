@@ -110,7 +110,7 @@ button:focus {
   background-color: #fff;
 }
 
-.site-title {
+.site-title > a {
   margin: 0 0 1em;
   color: #4B5;
   font-weight: 400;
