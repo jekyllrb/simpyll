@@ -1,7 +1,7 @@
 {% assign parts = page.url | split: '/' %} 
 {% assign level = parts | size %} 
 {% assign subdir_level = level | plus:1 %}
-{% assign current = parts | last %} current = {{ current }} <br>
+{% assign current = parts | last %}
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} 
 
 {% for node in site.pages %}
@@ -15,7 +15,6 @@
 {% endif %}
 
 {% if site.baseurl == node.url and node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
-{% else %}
 {% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
 {% endfor %}
