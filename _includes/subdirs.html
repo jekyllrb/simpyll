@@ -36,6 +36,7 @@ parent = {{ parent }} <br>
 <a href='{{node.url}}'>{{node.title}}</a>
 {% endif %}
 {% else %}
+{% if current = node_parent %}
 node_link = <a href='{{node.url}}'>{{node.title}}</a> <br>
 node_parts = {{ node_parts }} <br>
 node_level = {{ node_level }} <br> 
@@ -43,6 +44,7 @@ node_subdir_level = {{ node_subdir_level }} <br>
 node_current = {{ node_current }} <br>
 node_parent = {{ node_parent }} <br>
 <br>
+{% endif %}
 {% endif %}
 
 
