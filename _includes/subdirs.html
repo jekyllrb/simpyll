@@ -1,4 +1,4 @@
-{% assign urlparts = page.url | split: '/' %}
+{% assign urlparts = page.url | prepend: site.baseurl | split: '/' %}
 urlparts = {{ urlparts }} <br>
 {% assign depth = urlparts | size %}
 depth = {{depth}} <br>
@@ -8,7 +8,7 @@ current = {{ current }} <br>
 parent = {{ parent }} <br>
 
 {% for node in site.pages %}
-    {% assign node_urlparts = node.url | split: '/' %}
+    {% assign node_urlparts = node.url | prepend: site.baseurl | split: '/' %}
     node_urlparts = {{ node_urlparts }} <br>
     {% assign node_depth = node_urlparts | size | minus: 1 %}
     node_depth = {{ node_depth }} <br>
