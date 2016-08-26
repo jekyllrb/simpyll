@@ -9,7 +9,7 @@
     {% assign node_current = node_urlparts | last %} node_current = {{ node_current }} <br>
     {% capture node_parent %}{% for part in node_urlparts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %} node_parent = {{ node_parent }} <br>
     
-    {% if depth == node_depth %}
+    {% if depth != node_depth %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
     
