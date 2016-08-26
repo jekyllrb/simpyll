@@ -1,6 +1,6 @@
 {% assign urlparts = page.url | split: '/' %}
 urlparts = {{ urlparts }} <br>
-{% assign depth = urlparts | size | minus: 1 %}
+{% assign depth = urlparts | size %}
 depth = {{depth}} <br>
 {% assign current = urlparts | last %}
 current = {{ current }} <br>
@@ -12,7 +12,7 @@ parent = {{ parent }} <br>
   {% if node.url contains parent and node.title == true %}
     {% assign node_urlparts = node.url | split: '/' %}
     node_urlparts = {{ node_urlparts }} <br>
-    {% assign node_depth = node_urlparts | size %}
+    {% assign node_depth = node_urlparts | size | minus: 1 %}
     node_depth = {{ node_depth }} <br>
     {% assign node_current = node_urlparts | last %}
     node_current = {{ node_current }} <br>
