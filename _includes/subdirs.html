@@ -1,4 +1,4 @@
-page.url = {{ page.url | prepend: site.baseurl }}
+page.url = {{ page.url | split: '/' | prepend: site.baseurl }}
 
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
