@@ -1,6 +1,13 @@
 <div class="dropdown">
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-<a>Home</a>
+  {% if site.baseurl %}
+  <button onclick="myFunction()" class="dropbtn">Home</button>
+  <div id="myDropdown" class="dropdown-content">
+  {% include subdirs.html %}
+  </div>
+  {% else %}
+  <a>Home</a>
+  {% endif %}
 {% for crumb in crumbs offset: 1 %}
 {% if forloop.last %}
 <span class="icon-arrow" aria-hidden="true">&rsaquo;</span>
