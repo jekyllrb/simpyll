@@ -1,50 +1,12 @@
-<style>
-
-.dropbtn {background-color: transparent;}
-.dropbtn:hover, .dropbtn:focus {background-color: transparent;}
-.dropdown {position: relative;  display: inline-block;}
-.dropdown-content {display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
-.dropdown-content a {color black; text-decoration: none;  display: block;}
-.dropdown-content a:hover {background-color: transparent;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color:transparent;}
-.show {display:block;}
-
-</style>
-
-<div class="dropdown">
-{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-
-<a href="/">Home</a>
-{% for crumb in crumbs offset: 1 %}
-  {% if forloop.last %}
-  <span class="icon-arrow" aria-hidden="true">&rsaquo;</span><button onclick="myFunction()" class="dropbtn">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</button>
-  <div id="myDropdown" class="dropdown-content">{% include subdirs.html %}</div>
-    {% else %}
-    <span class="icon-arrow" aria-hidden="true">&rsaquo;</span> <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
-  {% endif %}
-{% endfor %}
+<div class="dropdown">{% 
+assign crumbs = page.url | remove:'/index.html' | split: '/' %}<a href="/">Home</a>{%
+for crumb in crumbs offset: 1 %}{%
+if forloop.last %}<span class="icon-arrow" aria-hidden="true">&rsaquo;</span><button onclick="myFunction()" class="dropbtn">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</button><div id="myDropdown" class="dropdown-content">{% 
+include subdirs.html %}</div>{%
+else %}<span class="icon-arrow" aria-hidden="true">&rsaquo;</span> <a href="{% 
+assign crumb_limit = forloop.index | plus: 1 %}{% 
+for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{%
+endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>{% 
+endif %}{% 
+endfor %}
 </div>
-
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
