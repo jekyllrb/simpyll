@@ -1,12 +1,8 @@
 <div class="dropdown">
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-  {% if site.baseurl %}
+  {% if site.baseurl == page.url%}
   <button onclick="myFunction()" class="dropbtn">Home</button>
-  <div id="myDropdown" class="dropdown-content">
-  {% include subdirs.html %}
-  </div>
-  {% else %}
-  <a>Home</a>
+  <div id="myDropdown" class="dropdown-content">{% include subdirs.html %}</div>
   {% endif %}
 {% for crumb in crumbs offset: 1 %}
 {% if forloop.last %}
