@@ -26,6 +26,8 @@ parent = {{ parent }} <br>
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
+{% if level == node.level %}
+
 <br>
 <a href='{{node.url}}'>{{node.title}}</a>
 node_parts = {{ node_parts }} <br>
@@ -34,5 +36,6 @@ node_current = {{ node_current }} <br>
 node_parent = {{ node_parent }} <br>
 <br>
 
+{% endif %}
 {% endif %}
 {% endfor %}
