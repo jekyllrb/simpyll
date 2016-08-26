@@ -8,7 +8,8 @@ current = {{ current }} <br>
 parent = {{ parent }} <br>
 
 {% for node in site.pages %}
-    {% if node_depth == -1 %}
+{% assign node_depth = node_urlparts | size %}
+    {% if node_depth == 0 %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
 {% endfor %}
