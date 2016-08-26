@@ -14,13 +14,19 @@
 
 {% for node in site.pages %}
 {% if node.title != nil %}
+{% if node.url == site.url or node.url == site.baseurl %}
+{% assign node_parts = site.baseurl %}
+{% assign node_level = 1 %}
+{% assign node_subdir_level = level | plus:1 %}
+{% assign node_current = site.baseurl %}
+{% assign node_parent = nil %}
+{% else %}
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
 {% assign node_subdir_level = node_level | plus:1 %}
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
-
+{% endif %}
 {% if node_level == subdir_level and current == node_parent %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
-
 {% endif %}
 {% endfor %}
