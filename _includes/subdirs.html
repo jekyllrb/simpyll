@@ -1,15 +1,22 @@
 {% assign urlparts = page.url | split: '/' %}
+urlparts = {{ urlparts }} <br>
 {% assign depth = urlparts | size %}
+depth = {{depth}} <br>
 {% assign current = urlparts | last %}
+current = {{ current }} <br>
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %}
+parent = {{ parent }} <br>
 
 {% for node in site.pages %}
   {% if node.url contains parent %}
-  <br>
     {% assign node_urlparts = node.url | split: '/' %}
+    node_urlparts = {{ node_urlparts }} <br>
     {% assign node_depth = node_urlparts | size | minus: 1 %}
+    node_depth = {{ node_depth }} <br>
     {% assign node_current = node_urlparts | last %}
+    node_current = {{ node_current }} <br>
     {% capture node_parent %}{% for part in node_urlparts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
+    node_parent = {{ node_parent }} <br>
     {% if depth == node_depth and current == node_parent %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
