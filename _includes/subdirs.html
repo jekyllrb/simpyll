@@ -14,7 +14,7 @@
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 {% endif %}
 
-{% for node.url == base.url %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endfor %}
+{% if page.url == site.baseurl %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endif %}
 {% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
 {% endfor %}
