@@ -1,3 +1,5 @@
+page.url = {{ page.url }}
+
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
 {% assign current = urlparts | last %}<!-- current = {{ current }} <br> -->
