@@ -1,6 +1,6 @@
 {% assign urlparts = page.url | prepend: site.baseurl | split: '/' %}
 urlparts = {{ urlparts }} <br>
-{% assign depth = urlparts | size %}
+{% assign depth = urlparts | size | minus: 1 %}
 depth = {{depth}} <br>
 {% assign current = urlparts | last %}
 current = {{ current }} <br>
@@ -16,7 +16,7 @@ parent = {{ parent }} <br>
     node_current = {{ node_current }} <br>
     {% capture node_parent %}{% for part in node_urlparts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
     node_parent = {{ node_parent }} <br>
-    {% if depth == node_depth and current == node_parent %}
+    {% if depth == node_depth %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
 {% endfor %}
