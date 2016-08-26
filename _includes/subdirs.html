@@ -27,6 +27,6 @@
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
-{% if current == node_parent %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
+<a href='{{node.url}}'>{{node.title}}</a>
 {% endif %}
 {% endfor %}
