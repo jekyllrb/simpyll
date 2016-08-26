@@ -19,7 +19,7 @@ parent = {{ parent }} <br>
 <br>
  
 {% for node in site.pages %}
-
+{% if page.url == site.url or page.url == site.baseurl %}{{ next }}{% endif %}
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
 {% assign node_current = node_parts | last %}
