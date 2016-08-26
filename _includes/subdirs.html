@@ -12,15 +12,6 @@
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} 
 {% endif %}
 
-<br>
-
-parts = {{ parts }} <br>
-level = {{ level }} <br>
-subdir_level = {{ subdir_level }} <br>
-current = {{ current }} <br>
-parent = {{ parent }} <br>
-<br>
- 
 {% for node in site.pages %}
 {% if node.title != nil %}
 
@@ -30,7 +21,6 @@ parent = {{ parent }} <br>
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
-<br>
 {% if page.url == site.url or page.url == site.baseurl %}
 {% if node_level == 2 %}
 <a href='{{node.url}}'>{{node.title}}</a>
