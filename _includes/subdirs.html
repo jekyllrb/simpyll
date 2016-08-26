@@ -30,8 +30,9 @@ parent = {{ parent }} <br>
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 
+
 <br>
-<a href='{{node.url}}'>{{node.title}}</a>
+{% if node_level == subdir_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 node_parts = {{ node_parts }} <br>
 node_level = {{ node_level }} <br> 
 node_subdir_level = {{ node_subdir_level }} <br> 
