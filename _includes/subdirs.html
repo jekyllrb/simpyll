@@ -1,11 +1,14 @@
-{% assign parts = page.url | split: '/' | map %} <br> parts = {{ parts }}
-{% assign level = parts | size %} <br> level = {{ level }}
+{% if page.url == site.url or page.url == site.baseurl %}
+{% assign parts = site.baseurl %}
+{% assign level = 1 %}
+{% assign current = site.baseurl
+{% assign parent = nil %}
+{% endif %}
 
-
-
-
-
-<!--
+parts = {{ parts }}
+level = {{ level }}
+current = {{ current }}
+parent = {{ parent }}
 
 {% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
 {% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
