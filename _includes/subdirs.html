@@ -7,7 +7,7 @@
 {% for node in site.pages %}
 {% if node.title != nil %}
 {% assign node_parts = node.url | split: '/' %}
-{% if page.url == site.url or page.url == site.baseurl %}{% assign node_level = 1 %}{% else %}{% assign node_level = node_parts | size %}{% endif %}
+{% if page.url == site.url or page.url == site.baseurl %}{% assign node_level = 1 %}{% assign current == node_parent %}{% else %}{% assign node_level = node_parts | size %}{% endif %}
 {% assign node_subdir_level = node_level | plus:1 %}
 {% assign node_current = node_parts | last %}
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
