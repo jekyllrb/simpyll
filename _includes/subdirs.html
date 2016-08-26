@@ -11,7 +11,8 @@
 {% endif %}
 
 <br>
-urlparts = {{ urlparts }} <br>
+{% if depth == 1 %}<a href='{{page.url}}'>{{page.title}}</a>{% endif %} <br>
+parts = {{ parts }} <br>
 level = {{ level }} <br>
 current = {{ current }} <br>
 parent = {{ parent }} <br>
@@ -36,5 +37,3 @@ parent = {{ parent }} <br>
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
 {% endfor %}
-
--->
