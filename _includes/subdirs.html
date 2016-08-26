@@ -1,4 +1,4 @@
-{% assign parts = page.url | split: '/'  %} <br> parts = {% for part in parts %}{{ part }}{% endfor %}
+{% assign parts = page.url | split: '/'  | map %} <br> parts = {% for part in parts %}{{ part }}{% endfor %}
 {% assign level = parts | size %} <br> level = {{ level }}
 
 
