@@ -18,7 +18,7 @@ parent = {{ parent }} <br>
     node_current = {{ node_current }} <br>
     {% capture node_parent %}{% for part in node_urlparts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
     node_parent = {{ node_parent }} <br>
-    {% if depth == node_depth and current == node_parent %}
+    {% if depth == node_depth | plus: 1 and current == node_parent %}
       <a href='{{node.url}}'>{{node.title}}</a>
     {% endif %}
   {% endif %}
