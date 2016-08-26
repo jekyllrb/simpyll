@@ -1,8 +1,8 @@
-{% assign urlparts = page.url | split: '/' %} urlparts = {{ urlparts }} <br>
-{% assign depth = urlparts | size %} depth = {{depth}} <br>
-{% assign current = urlparts | last %} current = {{ current }} <br>
-{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} parent = {{ parent }} <br>
-
+{% assign urlparts = page.url | split: '/' %} <!-- urlparts = {{ urlparts }} <br> -->
+{% assign depth = urlparts | size %} <!-- depth = {{ depth }} <br> -->
+{% assign current = urlparts | last %}<!-- current = {{ current }} <br> -->
+{% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} parent = {{ parent }} <!-- parent = {{ parent }} <br> -->
+    
 {% for node in site.pages %}
     {% assign node_urlparts = node.url | split: '/' %}<!-- node_urlparts = {{ node_urlparts }} <br> -->
     {% assign node_depth = node_urlparts | size | minus: 1 %}<!-- node_depth = {{ node_depth }} <br> -->
