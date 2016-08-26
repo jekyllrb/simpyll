@@ -143,21 +143,6 @@ button:focus {
   display: flex;
 }
 
-.content-box-title > div {
-  width: 90%;
-  padding: 1em;
-  display: flex;
-  flex: 1;
-
-}
-
-.content-box-title > div:first-child {
-  margin-right: 2em;
-  width: 10%;
-  display: flex;
-  flex: 1;
-}
-
 .article {
   flex: 1 0 auto;
   padding: 1.5em 1.5em 0;
@@ -214,37 +199,6 @@ button:focus {
   border-bottom: 0.17em solid #000;
   background-color: #fff;
   float: right;
-}
-
-.icon-edit-tip {
-  left: 0px;
-  height: 6.5px;
-  width: 6.5px;
-  top: 13px;
-  background: #4B5;
-  transform: skew(-10deg, -10deg);
-  position: relative;
-}
-
-.icon-edit-shaft {
-  border-left: .25em solid #fff;
-  background: #4B5;
-  transform: rotate(-45deg);
-  margin-right: 0px;
-  position: relative;
-  height: 7.5px;
-  width: 16.5px;
-  border-left-width: 1.5px;
-  left: 1px;
-}
-
-.icon-edit {
-  display: flex;
-  height: 1em;
-  width: 100%;
-  margin: 0.5em;
-  height: 1em;
-  justify-content: flex-end;
 }
 
 .breadcrumbs {
