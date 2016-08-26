@@ -137,7 +137,7 @@ button:focus {
 .content-box-header {
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid #4b5;
+
   font-size: 1.5em;
   font-weight: 400;
   display: flex;
