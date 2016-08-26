@@ -19,6 +19,7 @@ parent = {{ parent }} <br>
 <br>
  
 {% for node in site.pages %}
+{% if node.title != nil %}
 
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
@@ -33,4 +34,5 @@ node_current = {{ node_current }} <br>
 node_parent = {{ node_parent }} <br>
 <br>
 
+{% endif %}
 {% endfor %}
