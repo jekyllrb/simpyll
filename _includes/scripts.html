@@ -1,8 +1,8 @@
-<script src="{{ 'assets/list.js' | prepend:site.baseurl }}" type="text/javascript"></script>
 <script src="{{ 'assets/slideout.min.js' | prepend:site.baseurl }}" type="text/javascript"></script>
 <script src="{{ 'assets/slideout.config.js' | prepend:site.baseurl }}" type="text/javascript"></script>
 <script src="{{ 'assets/search.min.js' | prepend:site.baseurl }}" type="text/javascript"></script>
 <script src="{{ 'assets/search.config.js' | prepend:site.baseurl }}" type="text/javascript"></script>
+<script src="{{ 'assets/list.js' | prepend:site.baseurl }}" type="text/javascript"></script>
 
 <script>
 /* When the user clicks on the button, 
@@ -27,12 +27,10 @@ window.onclick = function(event) {
 }
 </script>
 
-<script src="http://listjs.com/no-cdn/list.js"></script>
 <script>
-var options = {
-  valueNames: [ 'name', 'born' ]
+  var options = {
+    valueNames: [ 'name', 'born' ]
 };
 
-var userList = new List('users', options);
+  var userList = new List('users', options);
 </script>
-
