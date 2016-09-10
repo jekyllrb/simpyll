@@ -211,7 +211,7 @@ button:focus {
 .dropdown {position: relative;  display: inline-block;}
 .dropdown-content {margin: 0 4.25em;display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
 .dropdown-content a {margin: 0 4.25em;text-decoration: none;display: block;text-transform: capitalize;margin:0;padding:0;}
-.dropdown-content a:hover {margin: 0 4.25em;background-color: transparent;}
+.dropdown-content a:hover {background-color: transparent;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color:transparent;}
 .show {display:block;}
