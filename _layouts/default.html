@@ -9,15 +9,12 @@
           <h1 class="site-title"><a href="{{site.baseurl}}">{{ site.title }}</a></h1>
         </header>
         <section class="content-box">
-          <div class="content-box-header"><div class="breadcrumbs">{% include dropdown.html %}</div></div>
-          <div class="article">
-           <!-- <div>{% include automenu url="/" sort="url" reverse=true all=true %}</div> -->
-            {{ content }}
+          <div class="content-box-header">
+            {% include breadcrumbs %}
           </div>
+          <div class="article">{{ content }}</div>
         </section>
-        <footer class="panel-footer">
-          <a href="https://github.com/{{ site.github }}/{{ site.repository }}/edit/{{ site.branch }}/{{ page.path }}">Edit this page</a>
-        </footer>
+        {% include footer %}
       </div>
       {% include scripts.html %}
   </body>
