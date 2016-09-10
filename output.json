@@ -1,0 +1,12 @@
+---
+layout: none
+---
+
+[{% for page in site.pagess %}{
+	"company-name": "{{page.company-name}}",
+	"city": "{{page.city}}",
+	"state": "{{page.state}}",
+	"employees": "{{page.employees}}",
+	"tags": "{{ page.tags | array_to_sentence_string }}",
+	"categories": "{{page.categories}}"
+}{% if forloop.rindex0 > 0 %},{% endif %}{% endfor %}]
