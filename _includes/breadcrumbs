@@ -23,7 +23,7 @@
 {% endif %}
 {% endif %}
 {% if current == node_parent and subdir_level == node_level %}
-  <a href='{{node.url}}'>{{node.title}}</a>
+  <a style="margin:0 4.25em;" href='{{node.url}}'>{{node.title}}</a>
 {% endif %}
 
 {% endfor %}</div>{% else %}<a>Home</a>{% endif %}
@@ -49,7 +49,7 @@
 {% endif %}
 
 {% if page.url == site.baseurl %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endif %}
-{% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
+{% if current == node_parent and subdir_level == node_level %}<a style="margin:0 4.25em;" href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
 {% endfor %}</div>
 {% else %}
