@@ -14,3 +14,6 @@ layout: default
 | 8/16/16 |             |              |              | 50               |              |          |         |
 | 8/20/16 |             |              |              |                  | 40           | 3.2      |         |
 | 8/24/16 |             | 50           |              |                  |              |          | 10      |
+9/5/16 portrairt preemergent
+9/8/16 72lbs milorganite
+9/9/16 50lbs sbm
