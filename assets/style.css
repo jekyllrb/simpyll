@@ -209,8 +209,8 @@ button:focus {
 .dropbtn {background-color:transparent;font-size: 1em;vertical-align: text-top;font-weight: 500;}
 .dropbtn:hover, .dropbtn:focus {background-color: transparent;}
 .dropdown {position: relative;  display: inline-block;}
-.dropdown-content {display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
-.dropdown-content a {margin: 0 4.25em;position: absolute;display: flex;justify-content: center;text-decoration: none;display: block;text-transform: capitalize;margin:0;padding:0;}
+.dropdown-content {display: none;background-color: transparent; box-sizing: border-box;}
+.dropdown-content a {margin: 0 4.25em;display: flex;justify-content: center;text-decoration: none;display: block;text-transform: capitalize;margin:0;padding:0;}
 .dropdown-content a:hover {margin: 0 4.25em;position: absolute;display: flex;justify-content: center;text-decoration: none;display: block;text-transform: capitalize;margin:0;padding:0;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color:transparent;}
