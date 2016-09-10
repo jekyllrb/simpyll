@@ -31,4 +31,3 @@ title: home
   </table>
 
 </div>
-<script src="http://listjs.com/no-cdn/list.js"></script>
