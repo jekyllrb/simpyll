@@ -211,7 +211,7 @@ button:focus {
 .dropdown {position: relative;  display: inline-block;}
 .dropdown-content {margin: 0 4.25em;display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
 .dropdown-content a {margin: 0 4.25em;text-decoration: none;display: block;text-transform: capitalize;margin: 0;padding: 0;height: 32px;width: 100%;line-height: 32px;padding-left: 20px;color: #007dc6;width: 213px;height: 36px;border-right: 1px solid #e9e9e9;padding-left: 20px;text-decoration: none;border: 1px solid #d9d9d9;background-color: #d9d9d9;box-shadow: 0 7px 10px rgba(0,0,0,.4);border-radius: 0 0 5px 5px;}
-.dropdown-content a:hover {margin: 0 4.25em;text-decoration: none;display: block;text-transform: capitalize;margin: 0;padding: 0;height: 32px;width: 100%;line-height: 32px;padding-left: 20px;color: #007dc6;width: 213px;height: 36px;border-right: 1px solid #e9e9e9;padding-left: 20px;text-decoration: none;border: 1px solid #d9d9d9;background-color: #d9d9d9;box-shadow: 0 7px 10px rgba(0,0,0,.4);border-radius: 0 0 5px 5px;}
+.dropdown-content a:hover {text-decoration: none;display: block;text-transform: capitalize;margin: 0;padding: 0;height: 32px;width: 100%;line-height: 32px;padding-left: 20px;color: #007dc6;width: 213px;height: 36px;border-right: 1px solid #e9e9e9;padding-left: 20px;text-decoration: none;border: 1px solid #d9d9d9;background-color: #d9d9d9;box-shadow: 0 7px 10px rgba(0,0,0,.4);border-radius: 0 0 5px 5px;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color:transparent;}
 .show {display:block;}
