@@ -1,14 +1,14 @@
 <div class="breadcrumbs">
 <div class="dropdown">
-{% if site.baseurl == page.url%}<button onclick="myFunction()" class="dropbtn">Home</button>
-<div id="myDropdown" class="dropdown-content">{% assign parts = page.url | split: '/' %} 
+{% if site.baseurl == page.url %}
+<button onclick="myFunction()" class="dropbtn">Home</button>
+<div id="myDropdown" class="dropdown-content">
+{% assign parts = page.url | split: '/' %} 
 {% assign level = parts | size %} 
 {% assign subdir_level = level | plus:1 %}
 {% assign current = parts | last %}
 {% capture parent %}{% for part in urlparts %}{{ part | remove: current }}{% endfor %}{% endcapture %} 
-
 {% for node in site.pages %}
-
 {% if node.title != nil %}
 {% assign node_parts = node.url | split: '/' %}
 {% assign node_level = node_parts | size %}
@@ -17,8 +17,14 @@
 {% capture node_parent %}{% for part in node_parts %}{{ part | remove: node_current }}{% endfor %}{% endcapture %}
 {% endif %}
 
-{% if page.url == site.baseurl %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endif %}
-{% if current == node_parent and subdir_level == node_level %}<a style="margin:0 4.25em;" href='{{node.url}}'>{{node.title}}</a>{% endif %}
+{% if page.url == site.baseurl %}
+{% if node_level == 2 %}
+  <a href='{{node.url}}'>{{node.title}}</a>
+{% endif %}
+{% endif %}
+{% if current == node_parent and subdir_level == node_level %}
+  <a href='{{node.url}}'>{{node.title}}</a>
+{% endif %}
 
 {% endfor %}</div>{% else %}<a>Home</a>{% endif %}
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
@@ -43,7 +49,7 @@
 {% endif %}
 
 {% if page.url == site.baseurl %}{% if node_level == 2 %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}{% endif %}
-{% if current == node_parent and subdir_level == node_level %}<a style="margin:0 4.25em;" href='{{node.url}}'>{{node.title}}</a>{% endif %}
+{% if current == node_parent and subdir_level == node_level %}<a href='{{node.url}}'>{{node.title}}</a>{% endif %}
 
 {% endfor %}</div>
 {% else %}
