@@ -1,6 +1,6 @@
 ---
-title: organic matter
 layout: default
+title: organic matter
 tags: 
   - organic matter
   - om
