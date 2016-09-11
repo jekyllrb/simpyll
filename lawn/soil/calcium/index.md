@@ -5,10 +5,13 @@ tags:
   - calcium
 ---
 
+### range
 - 45.8%
   - very low but not deficient
-  
-- increase by:
+- 50.5%
+  - slightly low
+
+### increase by:
   - encap
   - mag-I-cal
   - pennington fast lime
