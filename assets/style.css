@@ -42,7 +42,21 @@ button:focus {outline: 0;}
 .dropbtn {background-color:transparent;font-size: 1em;vertical-align: text-top;font-weight: 500;}
 .dropbtn:hover, .dropbtn:focus {background-color: transparent;}
 .dropdown {position: relative;  display: inline-block;}
-.dropdown-content {display: none; position: absolute; background-color: transparent; box-sizing: border-box;}
+.dropdown-content:before { content: '';}
+.dropdown-content:after { content: '';}
+.dropdown-content {    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 28px 0 16px;
+    background-color: #4e5359;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #ffffff;
+    white-space: nowrap;
+    border-bottom: 1px solid #555b61;
+    text-overflow: ellipsis;}
 .dropdown-content a {text-decoration: none;display: block;text-transform: capitalize;margin:0;padding:0;}
 .dropdown-content a:hover {background-color: transparent;}
 .dropdown:hover .dropdown-content {display: block;}
