@@ -211,6 +211,29 @@ button:focus {
   height: 1em;
 }
 
+.search-input {
+  width: 100%;
+  font-size: 1em;
+  padding: 1em;
+  color: #fff;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  padding-left: 2em;
+}
+
+.search-box {
+  white-space: nowrap;
+  position: relative;
+  vertical-align: middle;
+}
+
+.search-results-container {
+  padding-left: 0.5em;
+  margin: 1em 0;
+  font-size: x-large;
+  line-height: 2em;
+}
 
 .dropbtn {background-color:transparent;font-size: 1em;vertical-align: text-top;font-weight: 500;}
 .dropbtn:hover, .dropbtn:focus {background-color: transparent;}
