@@ -6,10 +6,14 @@ tags:
 ---
 
 ### range
-- 1.3%/62 PPM: Low
+- 1.3%/62 PPM
+  - Low
 - 2.5%
   - slightly low
-  
+
+- 110 ppm
+  - slightly low
+
 ### decreased by: 
 - inverase relationship with calcium
   - as calcium goes potassium goes down
