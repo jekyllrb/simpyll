@@ -1,0 +1,15 @@
+{% for node in site.pages offset:1 %}
+{% if node.url == '/' %}
+{{ continue }}
+{% else %}
+{% assign split_path = node.url | split: "/" %}
+{% assign node_url = node.url %}
+{% for slug in split_path offset:1 %}
+{% assign slug = slug %}
+{% assign slug_depth = forloop.index %}
+{% endfor %}
+{% if slug_depth == page.url.size %}
+<li><a href="{{ node_url | prepend: site.baseurl }}">{{ slug }}</a></li>
+{% endif %}
+{% endif %}
+{% endfor %}
