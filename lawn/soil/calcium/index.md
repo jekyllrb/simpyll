@@ -11,6 +11,9 @@ tags:
 - 50.5%
   - slightly low
 
+- 4050 ppm
+  - Extremely high
+
 ### increase by:
   - encap
   - mag-I-cal
