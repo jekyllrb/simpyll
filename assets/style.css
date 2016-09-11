@@ -33,7 +33,7 @@ button:focus {outline: 0;}
 
 .search-input {width: 100%;font-size: 1em;padding: 1em;color: #fff;height: 50px;background: #2b303b;border: none;padding-left: 2em;}
 .search-box {white-space: nowrap;position: relative;vertical-align: middle;}
-.search-results-container {margin: 0;font-size: x-large;line-height: 2em;}
+.search-results-container {border-bottom: 1px solid #484848;margin: 0;font-size: x-large;line-height: 2em;}
 
 .icon-arrow {font-size: 1.5em;vertical-align: text-top;font-weight: 500;}
 .icon-hamburger {position: relative;font-size: 2em;padding: 0.08em;border: none;display: flex;width: 1em;border-top: 0.5em double #000;border-bottom: 0.17em solid #000;background-color: #fff;float: right;}
