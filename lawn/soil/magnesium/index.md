@@ -5,5 +5,8 @@ tags:
   - magnesium
 ---
 
+### range
+- 11.5%
+  - optimal
 - 20.5%
   - slightly high but not a problem
