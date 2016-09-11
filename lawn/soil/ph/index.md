@@ -3,10 +3,13 @@ title: PH
 layout: default
 ---
 
+### range
+- 5.9
+  - a hair low
 - 5.7 
   - low (not critical)
-  - 
 
-- brought up by:
-  - calcium
-  - potassium
+### increased by
+- calcium
+- magnesium
+- potassium
